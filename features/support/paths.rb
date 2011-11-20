@@ -3,10 +3,12 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the home\s?page$/
+    when /^the landing page$/
       '/'
-    when /^the admins panel$/
-      '/admin'
+    when /^the polish landing page$/
+      '/pl'
+    when /^the english landing page$/
+      '/en'
 
     else
       begin
