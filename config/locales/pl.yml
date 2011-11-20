@@ -2,3 +2,6 @@ pl:
   back: "Wróć"
   static_pages:
     welcome: 'Witaj na Auctioneer (beta)! Nie krępuj się i testuj.'
+  users:
+    index:
+      title: "Kokpit użytkownika"

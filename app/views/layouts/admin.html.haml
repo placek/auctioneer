@@ -1,0 +1,16 @@
+!!! XML
+!!! 5
+%html
+  %head
+    %title Auctioneer - admins panel
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tag
+  %body
+    #top_frame
+      %h1 Admins panel
+    #sidebar
+      - if admin_signed_in?
+        = render :partial => 'admin/admins/side_bar'
+    #panel
+      = yield

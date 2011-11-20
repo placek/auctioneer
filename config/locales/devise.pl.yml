@@ -1,0 +1,86 @@
+pl:
+  errors:
+    messages:
+      not_found: "nie znaleziono"
+      already_confirmed: "już został aktywowany, spróbuj się zalogować"
+      not_locked: "nie był zablokowany"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+
+  devise:
+    navigation:
+      sign_in: 'Zaloguj'
+      sign_out: 'Wyloguj'
+      sign_up: 'Zarejestruj'
+      edit: 'Edytuj profil'
+      forgotten_password: 'Zapomniałeś hasła?'
+      resend_confirm_instructions: 'Nie otrzymałeś potwierdzenia rejestracji?'
+      hello: 'Witaj, '
+    failure:
+      unauthenticated: 'Musisz się zalogować lub zarejestrować aby kontynuować.'
+      unconfirmed: 'Musisz najpierw aktywować swoje konto aby kontynuować.'
+      locked: 'Twoje konto jest zablokowane.'
+      invalid: 'Niepoprawny email lub hasło.'
+      invalid_token: 'Niepoprawny token autentykujący.'
+      timeout: 'Twoja sesja wygasła, zaloguj się ponownie aby kontynuować.'
+      inactive: 'Twoje konto nie zostało jeszcze aktywowane.'
+    sessions:
+      new:
+        title: 'Logowanie'
+        email: 'Email'
+        password: 'Hasło'
+        remember_me: 'Zapamiętaj mnie'
+        sign_in: 'Zaloguj'
+      signed_in: 'Użytkownik został zalogowany.'
+      signed_out: 'Użytkownik został wylogowany.'
+    passwords:
+      new:
+        title: 'Przypomnienie hasła'
+        email: 'Email'
+        send: 'Wyślij instrukcje'
+      send_instructions: 'Wkrótce powinieneś otrzymać email z instrukcją jak ustawić nowe hasło.'
+      updated: 'Twoje hasło zostało zmienione. Jesteś już zalogowany.'
+    confirmations:
+      new:
+        title: 'Ponowne wysyłanie potwierdzenia rejestracji'
+        email: 'Email'
+        resend: 'Wyślij instrukcje'
+      send_instructions: 'Wkrótce powinieneś otrzymać email z instrukcją jak aktywować swoje konto.'
+      confirmed: 'Twoje konto zostało aktywowane. Jesteś już zalogowany.'
+    registrations:
+      new:
+        title: 'Rejestracja'
+        email: 'Email'
+        password: 'Hasło'
+        password_confirmation: 'Potwierdź hasło'
+        sign_up: 'Zarejestruj'
+      edit:
+        title: 'Edycja profilu'
+        email: 'Email'
+        password: 'Hasło'
+        password_confirmation: 'Potwierdź hasło'
+        password_description: "(pozostaw to pole puste jeśli nie chcesz zmieniać hasła)"
+        current_password_description: '(Twoje aktualne hasło potrzebne jest do potwierdzenia zmian)'
+        current_password: 'Aktualne hasło'
+        update: 'Zatwierdź zmiany'
+        cancel: 'Usuń konto'
+        cancel_confirmation: 'Czy na pewno chcesz usunąć konto?'
+      signed_up: 'Rejestracja zakończyła się sukcesem. Link aktywacyjny został wysłany na twój adres e-mail (jeśli włączone).'
+      updated: 'Twoje konto zostało pomyślnie zaktualizowane.'
+      destroyed: 'Papa! Twoje konto zostało usunięte. Mamy nadzieję, że spotkamy się jeszcze kiedyś!'
+    mailer:
+      confirmation_instructions:
+        subject: 'Instrukcja aktywacji konta'
+        welcome: 'Witaj'
+        body: 'Możesz potwierdzić swoje konto klikając na poniższy link:'
+        link: 'Potwierdź chęć utworzenia konta'
+      reset_password_instructions:
+        subject: 'Instrukcja ustawienia nowego hasła'
+        welcome: 'Witaj'
+        body1: 'Ktoś wysłał do nas zgłoszenie zmiany hasła. Jeśli to byłeś/byłaś Ty to kliknij na link poniżej:'
+        body2: "Jeżeli nie chcesz zmiany hasła zignoruj tę wiadomość."
+        body3: "Twoje hasło nie zmieni się dopóki nie klikniesz linku z tej wiadomości."
+        link: 'Zmień hasło'
+      unlock_instructions:
+        subject: 'Instrukcja odblokowania konta'

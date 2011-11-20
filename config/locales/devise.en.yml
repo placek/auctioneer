@@ -1,0 +1,85 @@
+en:
+  errors:
+    messages:
+      not_found: "not found"
+      already_confirmed: "was already confirmed, please try signing in"
+      not_locked: "was not locked"
+      not_saved: "was not saved"
+      one: "1 error prohibited this %{resource} from being saved:"
+      other: "%{count} errors prohibited this %{resource} from being saved:"
+
+  devise:
+    navigation:
+      sign_in: 'Sign in'
+      sign_out: 'Sign out'
+      sign_up: 'Sign up'
+      edit: 'Edit profile'
+      forgotten_password: 'Forgot your password?'
+      resend_confirm_instructions: "Didn't receive confirmation instructions?"
+      hello: 'Hi, '
+    failure:
+      unauthenticated: 'You need to sign in or sign up before continuing.'
+      unconfirmed: 'You have to confirm your account before continuing.'
+      locked: 'Your account is locked.'
+      invalid: 'Invalid email or password.'
+      invalid_token: 'Invalid authentication token.'
+      timeout: 'Your session expired, please sign in again to continue.'
+      inactive: 'Your account was not activated yet.'
+    sessions:
+      new:
+        title: 'Sign in'
+        email: 'Email'
+        password: 'Password'
+        remember_me: 'Remember me'
+        sign_in: 'Sign in'
+      signed_in: 'Signed in successfully.'
+      signed_out: 'Signed out successfully.'
+    passwords:
+      new:
+        title: 'Forgot your password?'
+        email: 'Email'
+        send: 'Send me reset password instructions'
+      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
+      updated: 'Your password was changed successfully. You are now signed in.'
+    confirmations:
+      new:
+        title: 'Resend confirmation instructions'
+        email: 'Email'
+        resend: 'Resend confirmation instructions'
+      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
+      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+    registrations:
+      new:
+        title: 'Sign up'
+        email: 'Email'
+        password: 'Password'
+        password_confirmation: 'Confirm password'
+        sign_up: 'Sign up'
+      edit:
+        title: 'Edit'
+        email: 'Email'
+        password: 'Password'
+        password_confirmation: 'Confirm password'
+        password_description: "(leave blank if you don't want to change it)"
+        current_password_description: '(we need your current password to confirm your changes)'
+        current_password: 'Current password'
+        update: 'Update'
+        cancel: 'Cancel my account'
+        cancel_confirmation: 'Are you sure?'
+      signed_up: 'Welcome! You have signed up successfully.'
+      inactive_signed_up: 'You have signed up successfully. However, we could not sign you in because your account is %{reason}.'
+      updated: 'You updated your account successfully.'
+      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Confirmation instructions'
+        welcome: 'Welcome'
+        body: 'You can confirm your account through the link below:'
+        link: 'Confirm my account'
+      reset_password_instructions:
+        subject: 'Reset password instructions'
+        welcome: 'Welcome'
+        body1: 'Someone has requested a link to change your password, and you can do this through the link below.'
+        body2: "If you didn't request this, please ignore this email."
+        body3: "Your password won't change until you access the link above and create a new one."
+        link: 'Change my password'

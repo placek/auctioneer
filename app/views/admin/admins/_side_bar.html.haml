@@ -1,0 +1,8 @@
+%ul
+  %li= link_to 'Admins dashboard', admin_root_path
+  %li= link_to 'Leave panel', root_path
+  %li= link_to 'Sign out', destroy_admin_session_path, method: :delete
+.line
+%ul
+  %li= link_to "Admins (#{total_count_of(Admin)})", admin_admins_path
+  %li= link_to "Users (#{total_count_of(User)})", admin_users_path
