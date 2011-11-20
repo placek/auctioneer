@@ -1,0 +1,38 @@
+= form_tag admin_users_path, :method => :get do
+  = label_tag :email, "Filter by email:"
+  = text_field_tag :like, h(params[:email])
+  = submit_tag "Filter"
+  .grey
+    use '%' to match anything (like '%examp%')
+
+- unless params[:like].nil?
+  %p
+    Filtered with
+    %strong
+      = h(params[:like])
+
+= will_paginate(@users)
+
+%table
+  %tr
+    %th Email
+    %th Created at
+    %th Confirmed at
+    %th Last signed in
+    %th Sign in IP
+    %th{ :colspan => 2 } Actions
+  - @users.each do |user|
+    %tr
+      %td= user.email
+      %td= user.created_at
+      %td= user.confirmed_at.present? ? user.confirmed_at : 'not confirmed yet'
+      %td= user.last_sign_in_at.present? ? user.last_sign_in_at : 'not signed in yet'
+      %td= user.last_sign_in_at.present? ? user.last_sign_in_ip : 'not signed in yet'
+
+      - if user.confirmed?
+        %td= link_to 'Sign in', admin_user_login_path(user)
+      - else
+        %td= link_to 'Confirm', admin_user_confirm_path(user)
+      %td= link_to 'Delete', admin_user_delete_path(user), :confirm => 'Are you sure?', :method => :delete
+
+= will_paginate(@users)

@@ -5,10 +5,18 @@ module NavigationHelpers
 
     when /^the landing page$/
       '/'
+    when /^the home page$/
+      '/'
     when /^the polish landing page$/
       '/pl'
     when /^the english landing page$/
       '/en'
+    when /^the admins panel$/
+      '/admin'
+    when /^the users dashboard$/
+      '/en/dashboard'
+    when /^the auctions page$/
+      '/en/auctions'
 
     else
       begin

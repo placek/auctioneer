@@ -1,0 +1,228 @@
+//= require_tree .
+
+$link_color: #09f
+
+*
+  margin: 0
+  padding: 0
+  font-family: verdana, arial, helvetica, sans-serif
+  line-height: 18px
+
+h2
+  text-align: center
+
+a
+  color: $link_color
+  &:hover
+    text-decoration: underline
+
+.shadowed
+  -moz-box-shadow: 0 0 30px #888
+  -webkit-box-shadow: 0 0 30px #888
+  box-shadow: 0 0 30px #888
+
+.float-right
+  float: right
+
+.float-left
+  float: left
+
+.small-text
+  font-size: x-small
+
+.medium-text
+  font-size: small
+
+.centered
+  text-align: center
+
+.gray
+  color: gray
+
+.margin-t5
+  margin-top: 5px
+
+.margin-b5
+  margin-bottom: 5px
+
+.margin-l5
+  margin-left: 5px
+
+.margin-r5
+  margin-right: 5px
+
+.margin-t10
+  margin-top: 10px
+
+.margin-b10
+  margin-bottom: 10px
+
+.margin-l10
+  margin-left: 10px
+
+.margin-r10
+  margin-right: 10px
+
+.margin-tb5
+  margin: 5px 0
+
+.margin-lr5
+  margin: 0 5px
+
+.margin-tb5lr10
+  margin: 5px 10px
+
+.margin-tb10lr5
+  margin: 10px 5px
+
+.margin-5
+  margin: 5px
+
+.margin-10
+  margin: 10px
+
+.padding-l15
+  padding-left: 15px
+
+.post
+  padding-bottom: 10px
+
+.clear
+  clear: both
+
+.button
+  font-size: x-small
+  text-indent: 0
+  margin-bottom: 5px
+  margin-left: 10px
+  display: inline-block
+
+.big_button
+  font-size: small
+  text-indent: 0
+  margin-bottom: 5px
+  display: inline-block
+
+@mixin auction-layout
+  display: block
+  padding: 10px
+  margin: 10px 0
+  background-color: #eee
+  -moz-box-shadow: 0 0 5px #888
+  -webkit-box-shadow: 0 0 5px #888
+  box-shadow: 0 0 5px #888
+
+@mixin button-layout
+  text-align: center
+  border: 1px solid
+  border-radius: 4px
+  padding: .4em 1em
+  font-size: x-small
+  font-weight: bold
+
+.auction_info
+  @include auction-layout
+
+  .auction_actions
+    float: right
+    width: 200px
+    padding: 10px
+    background-color: #fff
+    text-align: center
+    border: 1px solid #ccc
+    border-radius: 4px
+
+  dl
+    float: left
+    dt
+      font-weight: bold
+
+    dd
+      margin-left: 15px
+
+
+.auction_big
+  @include auction-layout
+
+  h4
+    text-align: center
+    color: $link_color
+
+  ul
+    display: block
+
+    li
+      list-style: none
+      float: left
+      margin-right: 10px
+      font-size: 10px
+      color: #444
+
+  .auction_actions
+    float: right
+    margin-top: 5px
+
+.pagination
+
+  a
+    @include button-layout
+    text-decoration: none
+    background-color: #f6f6f6
+    border-color: #ccc
+
+  .next_page
+    @include button-layout
+
+  .previous_page
+    @include button-layout
+
+  .current
+    @include button-layout
+    border-color: #eb8f00
+    color: #eb8f00
+
+  .disabled
+    border-color: #ccc
+    color: #ccc
+
+#navigation
+  height: 20px
+  width: 100%
+  position: relative
+  top: 0
+  left: 0
+  padding: 10px 0
+  -moz-box-shadow: 0 0 5px 5px #888
+  -webkit-box-shadow: 0 0 5px 5px #888
+  box-shadow: 0 0 5px 5px #888
+
+  h1
+    display: inline
+    margin: 10px
+    color: #d33
+  ul
+    display: inline
+    li
+      display: inline
+      float: right
+      margin: 0 5px
+
+#main
+  margin: 30px 30px 30px 30px
+
+#auction_info
+  float: left
+
+
+  p
+    font-size: small
+
+#auction_description
+  padding: 20px 0
+  float: none
+  clear: both
+
+  hr
+    border: 1px solid #ddd
+  p
+    padding: 10px 0

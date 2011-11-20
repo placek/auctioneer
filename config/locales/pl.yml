@@ -1,4 +1,29 @@
 pl:
-  back: "Wróć"
+  back: "wróć"
+  edit: "edytuj"
+  show: "pokaż"
+  destroy: "usuń"
+  sure: "Czy na pewno?"
+  more: "więcej »"
+
+  will_paginate:
+    previous_label: "« wstecz"
+    next_label: "dalej »"
+
   static_pages:
     welcome: 'Witaj na Auctioneer (beta)! Nie krępuj się i testuj.'
+
+  users:
+    auctions: "Moje aukcje"
+    dashboard: "Kokpit"
+    index:
+      title: "Kokpit użytkownika"
+
+  auctions:
+    title: "Nazwa"
+    actual_price: "Aktualna cena"
+    minimum_price: "Minimalna cena"
+    description: "Opis"
+    user: "Wystawiający"
+    created: "Aukcja została pomyślnie utworzona"
+    updated: "Aukcja została pomyślnie zmodyfikowana"

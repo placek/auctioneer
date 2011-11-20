@@ -1,0 +1,22 @@
+.auction_big
+  %h4
+    = auction.title
+  %ul
+    %li
+      Aktualna cena:
+      = auction.actual_price || auction.minimum_price
+      zł
+    %li
+      Minimalna cena:
+      = auction.minimum_price
+      zł
+  .clear
+  %p
+    = short_description(auction.description)
+
+  .auction_actions
+    - if auction.user == current_user
+      .button= link_to t('edit'), edit_auction_path(auction)
+      .button= link_to t('destroy'), auction, :method => :delete, :confirm => t('sure')
+    .button= link_to t('more'), auction
+  .clear

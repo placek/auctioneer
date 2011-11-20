@@ -1,0 +1,20 @@
+pl:
+  formtastic:
+    required_explanation: "* wymagane pole"
+    required: "wymagane"
+
+    titles:
+      auction:
+        title: "Nazwa"
+        minimum_price: "Cena minimalna"
+        actual_price: "Cena aktualna"
+        description: "Opis"
+    labels:
+      auction:
+        title: "Nazwa"
+        minimum_price: "Cena minimalna"
+        actual_price: "Cena aktualna"
+        description: "Opis"
+    actions:
+      create: "Utwórz"
+      update: "Aktualizuj"

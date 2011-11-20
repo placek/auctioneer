@@ -1,0 +1,8 @@
+.float-right= will_paginate(@auctions)
+.clear
+
+.auctions
+   = render :partial => "auction", collection: @auctions
+
+.clear
+.float-right= will_paginate(@auctions)

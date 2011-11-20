@@ -1,0 +1,32 @@
+.auction_info
+  %dl
+    %dt= t('auctions.title')
+    %dd= @auction.title
+
+    %dt= t('auctions.minimum_price')
+    %dd= @auction.minimum_price
+
+    %dt= t('auctions.user')
+    %dd= @auction.user.email
+
+  .auction_actions
+    - if current_user != @auction.user
+      .big_button= link_to "Podbij", "#"
+    - else
+      .button= link_to t('edit'), edit_auction_path(@auction)
+      .button= link_to t('destroy'), @auction, :method => :delete, :confirm => t('sure')
+    %p
+      = t('auctions.actual_price')
+      \:
+      = @auction.actual_price
+      zł
+
+  .clear
+
+
+#auction_description
+  %hr
+  %p= @auction.description.html_safe
+  %hr
+
+.button= link_to t('back'), auctions_path

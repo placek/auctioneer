@@ -1,0 +1,20 @@
+en:
+  formtastic:
+    required_explanation: "* required field"
+    required: "required"
+
+    titles:
+      auction:
+        title: "Name"
+        minimum_price: "Minimum price"
+        actual_price: "Actual price"
+        description: "Description"
+    labels:
+      auction:
+        title: "Name"
+        minimum_price: "Minimum price"
+        actual_price: "Actual price"
+        description: "Description"
+    actions:
+      create: "Create"
+      update: "Update"

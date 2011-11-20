@@ -10,3 +10,8 @@ end
 Given /^an unconfirmed user "([^\"]+)"$/ do |name|
   Factory(:user, email: "#{name}@example.com")
 end
+
+Given /^I am logged in as user "([^\"]+)"$/ do |name|
+  user = User.where(email: "#{name}@example.com").first || Factory(:confirmed_user, email: "#{name}@example.com")
+  sign_in(:user, user)
+end

@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'haml'
 gem 'haml-rails'
+gem 'formtastic'
 gem 'thin'
 gem 'will_paginate'
 gem 'wirble', :require => nil

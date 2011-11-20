@@ -1,0 +1,31 @@
+= form_tag admin_admins_path, :method => :get do
+  = label_tag :email, "Filter by email:"
+  = text_field_tag :like, h(params[:email])
+  = submit_tag "Filter"
+  .grey
+    use '%' to match anything (like '%examp%')
+
+- unless params[:like].nil?
+  %p
+    Filtered with
+    %strong
+      = h(params[:like])
+
+= will_paginate(@admins)
+
+%table
+  %tr
+    %th Email
+    %th Last signed in
+    %th Actions
+  - @admins.each do |admin|
+    %tr
+      %td= admin.email
+      %td= admin.last_sign_in_at.to_s
+      %td
+        - if current_admin == admin
+          Delete
+        - else
+          = link_to 'Delete', admin_admin_delete_path(admin), confirm: 'Are you sure?', method: :delete
+
+= will_paginate(@admins)
