@@ -1,0 +1,130 @@
+/*
+Theme Name: Techdesigns.co.uk 002
+Theme URL: http://www.techdesigns.co.uk
+Description: Very clean, professional looking and fast loading theme by <a href="http://www.techdesigns.co.uk" title="Website Design">Techdesigns.co.uk</a>.<br/><br/>Valid XHTML strict and tested in IE, Firefox and Netscape.<br/><br/>Ideal for a company blog/website. 
+Version: v1.0
+Author: Joey Robinson
+Author URL: http://www.techdesigns.co.uk
+Latest updated: 12th May 2007
+*/
+
+/* CSS for Body */
+*{margin:0; padding:0;}
+body{color:#808080; background: url(img/back.jpg) top center repeat-x #FFFFFF; font:76% Verdana,Tahoma,Arial,sans-serif;}
+#page{color:#808080; background: url(img/bg.jpg) top center no-repeat ; width:100%;}
+#bg{background: url(img/main_bg.jpg) top repeat-y; color:#808080; margin:0 auto; width:100%; }
+#top{color:#808080; margin: auto; width:820px; height:83px; background: url(img/top.jpg) no-repeat;}
+#wrap{h5 color:#808080; margin:0 auto; width:760px; }
+
+/* CSS for Links */
+a{background-color:inherit; color:#6DAAE7; font-weight: none; text-decoration:none;}
+a:hover{background-color:inherit; color:#999999; font-weight: none; text-decoration:underline;}
+a img{border:0;}
+
+
+/* CSS for Header */
+#header{margin:5px 0 5; }
+#header h1{ color:#6DAAE7; float:left; font-size:18px; margin:10 0 10 0px; width:760px; font-weight: none;}
+#header h1 a{background-color:inherit; color:#6DAAE7; text-decoration:none;}
+
+#header p a{background-color:inherit; color:#808080; float:right; font-size:1em; font-weight:none; line-height:1.3em; margin:6px 0 0; text-align:center;}
+#frontphoto{margin:0 0 10px;}
+#header_title{color:#ffffff; font-size:18px; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; padding-left:35px; padding-top:10px; }
+#header_title a{color:#ffffff;}
+#header_title a:hover{background-color:inherit; color:#C5DDF5; text-decoration:none;}
+#header_title2{ color:#FFFFFF; font-size:12px; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:bold; padding-left:35px; padding-top:4px; padding-bottom: 22px }
+
+/* CSS for Sidebars */
+#leftside{clear:left; float:left; line-height:1.4em; margin:0 0 5px; width:140px;}
+#extras{float:right; line-height:1.4em; margin:0 0 5px; width:140px;}
+#leftside p, #leftside ul, #leftside div.textwidget, #extras p, #extras ul, #extras div.textwidget{font-size:1em; margin:0 0 18px;}
+#leftside li, #extras li{line-height:1.2em; list-style:none; margin:0 0 6px;}
+#leftside ul ul, #extras ul ul{margin:6px 0 0 1px;}
+#leftside ul ul li, #extras ul ul li{margin:0 0 4px;}
+#leftside ul ul li a, #extras ul ul li a{font-weight:normal;}
+#leftside ul.linklist, #extras ul.linklist{font-size:1em;}
+#leftside ul.linklist ul, #extras ul.linklist ul{margin:0 0 18px;}
+#leftside ul.linklist ul li a, #extras ul.linklist ul li a{font-weight:none;}
+#leftside h2, #leftside ul.linklist li h2, #leftside h3, #extras h2, #extras ul.linklist li h2, #extras h3{background-color:inherit; color:#999999; font-size:1.1em; margin:0 0 10px;}
+#leftside label, #extras label{display:none;}
+
+/* CSS for Main menu */
+ul.page{list-style:none; margin:0 0 18px; width:144px;}
+ul.page li{display:inline; line-height:1.4em; width:144px;}
+ul.page li a{background-color:#f4f4f4; border:0px; color:#808080; float:left; font-weight:none; margin-bottom:5px; padding:5px 1px 5px 5px; text-decoration:none; width:134px;}
+ul.page li a:hover, ul.page li.current_page_item a{background-color:#EAF4FF; border:0px; color:#000000; text-decoration:none;}
+ul.page ul{font-size:0.9em;margin:0 0 0 15px;padding:0 0 5px;width:129px;}
+ul.page ul a{padding:3px 1px 3px 5px;width:119px;}
+ul.page ul ul{width:117px;}
+ul.page ul ul a{width:104px;}
+
+/* CSS for Content */
+#content{line-height:1.6em;margin:0px 0px 5px 173px;padding:0;}
+#contentwide{line-height:1.6em;margin:0px 0px 5px 173px;padding:0;}
+#content h2,#contentwide h2 {font-size:1.7em;margin:0 0 10px; color: #6DAAE7;}
+#content h3,#contentwide h3{font-size:1.2em;margin:0 0 10px; color: #E6A100;}
+#content img,#contentwide img{border:0px;float:right;margin:0px 0px 10px 10px;}
+#content ul,#contentwide ul,#content ol,#contentwide ol{margin:0 0 16px 30px;}
+#content li,#contentwide li{padding:0 0 0 5px;}
+#content ul ul,#contentwide ul ul,#content ol ol,#contentwide ol ol{margin:0 0 0 16px;}
+
+/* CSS for Footer */
+#footer{background:#ffffff url(img/base_bg.jpg) top center repeat-y; border-top:0px;clear:both;color:#808080;font-size:0.9em;font-weight:normal;line-height:1.3em;margin:0 auto;padding:8px 0;text-align:center;width:100%; height: 100px;}
+#footer p{margin:0;padding:0;}
+#footer a{background-color:inherit;color:#808080;font-weight:normal;text-decoration:none;}
+#footer a:hover{background-color:inherit;color:#808080;text-decoration:underline;}
+
+
+/* CSS for Submenu */
+#subpages {border-bottom:0px; border-left:0px; font-weight:none;line-height:1.3em;float:right;margin:0px 0px 8px 15px;padding:0 0 10px 10px;width:150px;}
+#subpages h2{font-size:1.2em;font-weight:bold; margin:0 0 10px; padding-top: 5px; color:#6DAAE7;}
+#subpages ul.submenu{line-height:1.4em;list-style:none; margin:0;}
+#subpages ul.submenu li{display:inline; line-height:1.4em; width:140px; padding:0;}
+#subpages ul.submenu li a{font-size:0.9em; background-color:#f4f4f4; border:0px;color:#808080;float:left;margin-bottom:5px;margin-right: 6px;padding:3px 1px 3px 5px;text-decoration:none;width:140px;}
+#subpages ul.submenu li ul{margin:0 0 5px 10px;width:120px;}
+#subpages ul.submenu li ul li a{width:120px;}
+#subpages ul.submenu li ul ul{margin:0 0 5px 10px;width:110px;}
+#subpages ul.submenu li ul ul li a{width:110px;}
+#subpages ul.submenu li ul ul ul{margin:0 0 5px 10px;width:100px;}
+#subpages ul.submenu li ul ul ul li a{width:100px;}
+#subpages ul.submenu li a:hover,#subpages ul.submenu li.current_page_item a{background-color:#EAF4FF;border:0px;color:#000000;}
+#subpages ul.submenu li.current_page_item ul li a{background-color:#f4f4f4;border:0px;color:#808080;}
+
+/* CSS for Tags */
+p,ul,ol{margin:0 0 16px;}
+blockquote{border-left:4px solid #e0e0e0;margin:20px;padding:8px 8px 8px 15px;}
+blockquote p{background-color:inherit;color:#808080;font-size:0.9em;line-height:1.3em;}
+label{background-color:inherit;color:#999999;}
+table#wp-calendar{margin:0 0 18px;width:140px;}
+
+/* CSS for Forms */
+#s,#submit{background-color:#ffffff;border:1px solid #cccccc;color:#808080;font-size:0.9em;margin:0 0 5px;padding:4px;width:130px;}
+#searchsubmit{background-color:#ffffff;border:1px solid #cccccc;color:#808080;font-size:0.9em;margin:0 0 0px;padding:2px;width:50px;}
+#author,#email,#url,#comment{border:1px solid #cccccc;font-family:Verdana,Tahoma,Arial,Sans-Serif;font-size:1em;margin:0;padding:4px;}
+#commentsection{margin:25px 0 0;}
+#commentsection p{margin:0 0 6px;}
+
+/* CSS for Float fix */
+.contenttext{overflow:hidden;}
+* html .contenttext{height:1px;overflow:visible;}
+* html .contenttext p{overflow:hidden;width:99%;}
+
+/* CSS for Various classes */
+.left{border:1px solid #cccccc;float:left;margin:10px 15px 10px 0;}
+.right{border:1px solid #cccccc;float:right;margin:10px 0 5px 10px;}
+.center{border:1px solid #aaaaaa;margin:5px auto 12px;text-align:center;}
+.textright{text-align:right;}
+.sub{width: 99%;}
+.small{font-size:0.8em;}
+.bold{font-weight:bold;}
+.hide{display:none;}
+.post{margin:0 0 25px;}
+.divider{height: 25px; width:99%; background: url(img/divider.jpg) no-repeat; text-align:center;}
+.postinfo{background-color:#ffffff;border:0px;color:#999999;font-size:0.9em;font-weight:bold;line-height:1.5em;margin:1px 0 20px;padding:0px;}
+.comment{background-color:#ffffff;border:0px;color:#999999;margin:0 0 10px;padding:0px 0px 0 0px;}
+.comment p.commenthead{line-height:1.6em;}
+.comment p{font-size:0.9em;line-height:1.3em;margin:0 0 6px;padding-bottom:5px;}
+.navigation{display:block;margin:10px 0;padding:0 0 15px;text-align:center;}
+.navigation p{margin:0;padding:0;}
+.prevlink{margin-right:20px;}
+.nextlink{margin-left:20px;}

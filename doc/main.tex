@@ -1,0 +1,71 @@
+% Ustawienia dokumentu
+\documentclass[12pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage[polish]{babel}
+\usepackage{color}
+\usepackage[pdftex]{hyperref}
+\hypersetup{
+  colorlinks,
+  urlcolor=blue,
+  citecolor=red,
+  linkcolor=red
+}
+\urlstyle{rm}
+
+% definicje typów
+\definecolor{LightGray}{cmyk}{0,0,0,0.1}
+\newtheorem{definition}{Definicja}
+
+% informacje o dokumencie
+
+\author{Paweł~Placzyński}
+\title{System aukcyjny w~Ruby~on~Rails}
+\date{\today}
+
+% DOKUMENT
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Wstęp}
+
+\include{problematyka}
+
+\include{cele}
+
+%\include{definicje}
+
+\include{studium}
+
+%\include{literatura}
+
+\chapter{Metoda}
+
+\include{technologie}
+
+\include{narzedzia}
+
+\include{scrum}
+
+\include{dokumentacja}
+
+\chapter{Postępy pracy}
+
+%\include{mockupy}
+
+%\include{scenariusze} % założenia klienta i przechodzące testy
+
+%\include{projekt} % opis powstałego projektu
+
+%\include{obserwacje} % trudności, łatwosci itp.
+
+\include{bibliografia}
+
+\end{document}

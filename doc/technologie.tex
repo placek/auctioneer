@@ -1,0 +1,32 @@
+\section{Opis technologii zastosowanych w~pracy}
+
+\subsection{Technologie W3 i poboczne}
+
+\begin{enumerate}
+  \item \texttt{XHTML5}\cite{html5doc} (z~ang.~HyperText Markup Language version 5 -- język znaczników hipertekstu w~wersji piątej). XHTML5 jest językiem określającym strukturę stron internetowych. Składniowo bazuje on~na~języku XML (jest podzbiorem języka XML). Wersja piąta zapewnia kompatybilność wsteczną względem poprzednich wersji, a~przy tym precyzuje niejasności wersji 4 powodujące nieoczekiwane zachowanie w~niektorych przeglądarkach.
+  \item \texttt{CSS3}\cite{css3doc} (z~ang.~Cascade Style Sheet version 3 -- kaskadowy arkusz styli w~wersji trzeciej). CSS3 jest językiem określającym wygląd elementów języka XML jaki wyświetlany jest w~przeglądarce. Wersja 3 zapewnia kilka dodatkowych opcji, jak np. grid layouts (szablony pozycjonowane na bazie siatki)\footnote{\url{http://www.w3.org/TR/css3-grid/}}, shadows and rounded borders (cienie obiektów, zaokrąglenia obramowania)\footnote{\url{http://www.w3.org/TR/css3-background/}}, itp.
+  \item \texttt{JavaScript} -- jest małym, lekkim, zorientowanym obiektowo wieloplatformowym językiem skryptowym. JavaScript, mimo że nie jest użyteczny jako samodzielny język, został stworzony z myślą o łatwym zagnieżdżaniu w innych produktach i aplikacjach, jak na przykład przeglądarki internetowe. JavaScript może zostać powiązany z wewnętrzną strukturą danego środowiska dając programiście swobodną kontrolę nad jego elementami.
+
+  \item \texttt{AJAX} (z~ang. Asynchronous JavaScript and XML, asynchroniczny JavaScript i~XML) -- technologia tworzenia aplikacji internetowych, w~której interakcja użytkownika z~serwerem odbywa się bez przeładowywania całego dokumentu, w~sposób asynchroniczny. Ma~to~umożliwiać bardziej dynamiczną interakcję z~użytkownikiem niż w~tradycyjnym modelu, w~którym każde żądanie nowych danych wiąże się z~przesłaniem całej strony HTML.
+
+  \item \texttt{jQuery}\footnote{\url{http://docs.jquery.com/Main_Page}} (z.~ang. query -- zapytanie) -- lekka biblioteka programistyczna dla języka JavaScript, ułatwiająca korzystanie z~JavaScript (w~tym manipulację drzewem DOM). Kosztem niewielkiego spadku wydajności w~stosunku do~profesjonalnie napisanego kodu w~niewspomaganym JavaScripcie pozwala osiągnąć interesujące efekty animacji, dodać dynamiczne zmiany strony, wykonać zapytania AJAX. Większość pluginów i~skryptów opartych o~jQuery działa na~stronach nie wymagając zmian w~kodzie HTML (np.~zamienia klasyczne galerie złożone z~miniatur linkujących do~obrazków w~dynamiczną galerię). Wszystkie efekty osiągnięte z~pomocą jQuery można osiągnąć również bez jej użycia. Jednak kod okazuje się nieporównywalnie dłuższy i~bardziej skomplikowany.
+\end{enumerate}
+
+\subsection{Ruby oraz Ruby~on~Rails}
+
+\begin{enumerate}
+  \item \texttt{Ruby 1.9.2} (z.~ang.~ruby -- rubin) -- interpretowany, w~pełni obiektowy i~dynamicznie typowany język programowania stworzony w~1995 roku przez Yukihiro Matsumoto (pseudonim Matz). Wersja 1.9.2 cechuje się szybszym interpreterem, mniejszą konsumpcją zasobów oraz drobnymi poprawkami w~standardowych bibliotekach języka.
+  \item \texttt{Ruby~on~Rails}\footnote{\url{http://rubyonrails.pl/}} -- patrz rozdział \ref{cele.ror}.
+  \item \texttt{RSpec}\footnote{\url{http://rspec.info/}} + \texttt{Cucumber}\footnote{\url{http://cukes.info/}} RSpec to~narzędzie do~testownia oprogramowania pod względem testów jednostkowych oraz~behawioralnych przydatne w~realizowaniu projektów Test Driven Developement oraz~Behavior Driven Developement. Narzędzie Cucumber pozwala na~testowanie oprogramowania na podstawie tzw. scenariuszy -- dokumentów napisanych w języku naturalnym opisujących krok po~kroku funkcjonalności projektu.
+\end{enumerate}
+
+\subsection{Gemy i pluginy} \label{technologie.gemy}
+
+\begin{enumerate}
+  \item \texttt{haml}\footnote{\url{http://haml-lang.com/}} + \texttt{sass}\footnote{\url{http://sass-lang.com/}} -- plugin obsługujący język znaczników HAML używany do~prostego i~przejrzystego opisywania dokumentów XHTML oraz~CSS.
+  \item \texttt{device}\footnote{\url{https://github.com/plataformatec/devise}} -- system obsługi autentyfikacji użytkowników (rejestracja, sesje, zarządzanie hasłami itp.).
+  \item \texttt{thinking-sphinx}\footnote{\url{http://freelancing-god.github.com/ts/en/}} -- potężny silnik wyszukiwania i~dopasywania danych do podanych wzorców w~relacyjnych bazach danych.
+  \item \texttt{will\_paginate}\footnote{\url{https://github.com/mislav/will_paginate/wiki}} -- plugin obsługujący paginację stron.
+  \item \texttt{tiny\_mce}\footnote{\url{http://tinymce.moxiecode.com/}} -- plugin pozwalający na~użycie wewnętrznego edytora HTML.
+  \item \texttt{sqlite3}\footnote{\url{http://www.sqlite.org/}} -- adapter bazy danych Sqlite w~wersji trzeciej.
+\end{enumerate}

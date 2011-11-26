@@ -1,0 +1,591 @@
+\section{Dokumentacja projektu} \label{dokumentacja}
+
+Projekty systemów informatycznych mają to~do~siebie, że~rozwijają się niezwykle szybko. Rozwój projektu związany jest niestety z~powiększaniem objętości projektu -- zarówno merytorycznej, jak i~czysto fizycznej (np.~ilość linijek kodu, ilość plików, itp.). Problem pojawia się, gdy projekt jest zbyt ,,duży'' żeby programista mógł rozumieć wszystko to, co~się w~nim dzieje. Rozwiązaniem dla tego problemu jest tworzenie dokumentacji.
+
+
+W~projektach typu OpenSource dokumentacja jest niezwykle ważnym czynnikiem usprawniającym pracę programistów w~nich pracujących. Dobrze napisana dokumentacja sprawia, że~nowe osoby zaczynające pracę w~projekcie mogą łatwiej i~szybciej zapoznać się ze~strukturą, działaniem oraz~organizacją projektu. Jest to~szczególnie przydatne, gdy istnieje potrzeba edycji jedynie niewielkiego fragmentu projektu. Co~więcej -- osoby zajmujące się już od~dłuższego czasu pracą w~takim projekcie nie muszą pamiętać wszelkich zagadnień z~nim związanych. Pozwala to~programiście na~pracę w~wielu projektach na~raz.
+
+
+\subsection{Kod aplikacji} \label{dokumentacja.kod}
+
+Najlepszą dokumentacją dla systemu informatycznego jest kod aplikacji. To~właśnie on~realizuje wszystkie założenia projektowe, algorytmy czy cykle pracy naszego projektu. Prawidłowo napisany kod może powiedzieć więcej niż nie jedna dokumentacja -- tu~dowiadujemy się jak naprawdę działa interesujący nas moduł i~mamy pewność, że~nie padniemy ofiarą nieporozumień. Pod pojęciem ,,prawidłowo napisany kod'' mam na~myśli spełnienie następujących założeń:
+
+\begin{enumerate}
+  \item trzymanie się konwencji określającej osnowę dokumentu zawierającego kod (np.~konsekwencję w stosowaniu wcięć),
+  \item stosowanie zrozumiałych nazw dla wszelkich struktur (nazwy klas, metod, zmiennych, itp.),
+  \item tworzenie krótkich i~treściwych fragmentów kodu oraz~rozbijanie większych partii na~mniejsze.
+\end{enumerate}
+
+Wszystkie te kroki mają na celu sprawienie, że~kod stanie się bardziej czytelny. Omówię teraz te~trzy kroki nieco dokładniej w zastosowaniu dla języka Ruby.
+
+
+\subsubsection{Konwencja} \label{dokumentacja.konwencja}
+
+Język Ruby ze~względu na~swoją składnię jest niezwykle czytelny, a~co~za~tym idzie, ułatwia dokumentację projektu w~nim napisanego. Składnia Rubiego przypomina pseudokod:
+
+  \lstset{language=Ruby, caption=Przykład prostej składni języka Ruby -- algorytm DFS., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}} \label{code.simpleruby}
+  \begin{lstlisting}
+  def dfs node, value, queue
+    return false if node.nil?
+    return true if node.data == value
+    queue.push node.right_neighbor unless node.right_neighbor.nil?
+    queue.push node.left_neighbor unless node.left_neighbor.nil?
+    dfs queue.pop, value, queue
+  end
+  \end{lstlisting}
+
+Niestety -- sama składnia nie jest najważniejsza w~dokumentowaniu projektów. Powyższy przykład można przecież przepisać w~następujący sposób:
+
+  \lstset{language=Ruby, caption=Algorytm DFS z~zastosowaniem braku konwencji formatu., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}
+  def dfs node, value, queue
+  return false if node.nil?; if node.data == value
+  return true
+  end; queue.push node.right_neighbor unless \\
+    node.right_neighbor.nil?
+  unless node.left_neighbor.nil?
+  queue.push node.left_neighbor; end
+  dfs queue.pop, value, queue
+  end
+  \end{lstlisting}
+
+Jak widać przykład ten jest mniej czytelny, a~co~za~tym idzie, trudniej jest dowiedzieć się, za~co~dany fragment kodu jest odpowiedzialny. W~celu uzyskania ,,przejrzystości'' kodu stosuje się konwencje zapisu -- ogólnie przyjęte zasady mówiące o~tym jak powinien wyglądać kod i~jak ten kod formatować. Jest to~swego rodzaju etykieta -- zbiór zasad obowiązujących dla języka. Każdy język ma~swoją konwencję (a~czasem nawet kilka). Język Ruby także ,,dorobił się'' swojej. Konwencja ta~nosi nazwę \textit{The Ruby Style}\footnote{Patrz: \url{https://github.com/chneukirchen/styleguide/blob/master/RUBY-STYLE}} i~określona jest następująco (tłumaczenie własne):
+
+\begin{enumerate}
+  \item Formatowanie:
+  \begin{enumerate}
+    \item Używaj zawsze kodowania ASCII lub UTF8.
+    \item Używaj dwóch spacji jako wcięć (nigdy tabulatur).
+    \item Staraj się kończyć wiersz w~stylu używanym w~systemach Unix (LF -- 0x0A).
+    \item Używaj spacji przed i~po~operatorach, po~przecinkach, po~dwukropkach, po~średnikach, przed i~po~\{ oraz~po~\}.
+    \item Nie używaj spacji po~( oraz~[. Nie używaj spacji przed~] oraz~).
+    \item Używaj dwóch spacji przed modyfikatorem warunku (\texttt{if}/\texttt{unless}/\texttt{while}/\texttt{until}/\texttt{resque}).
+    \item Wcięcie dla słowa kluczowego \texttt{when} powinno być tak głębokie jak dla \texttt{case}.
+    \item Użyj pustego wiersza przed zwracaną wartością w~metodzie (chyba, że~ma~ona tylko jeden wiersz), a~także przed słowem kluczowym \texttt{def}
+    \item Używaj RDoc do~dokumentacji API. Nie wstawiaj pustego wiersza pomiędzy komentarz a~komentowany blok.
+    \item Użyj pustego wiersza do~podzielenia dużych metod na~logiczne fragmenty.
+    \item Staraj się by~każdy wiersz miał mniej niż 80 znaków.
+    \item Unikaj białych znaków na~końcu wiersza.
+  \end{enumerate}
+  \item Składnia:
+  \begin{enumerate}
+    \item Użyj \texttt{def} z~ nawiasami, gdy są~podane argumenty.
+    \item Nie używaj \texttt{for}, chyba, że~robisz to~celowo.
+    \item Nie używaj \texttt{then}.
+    \item Użyj ,,\texttt{when x;} \ldots'' dla jednolinijkowego wyrażenia \texttt{case}.
+    \item Użyj \texttt{\&\&}/\texttt{||} dla wyrażeń boolowskich, \texttt{and}/\texttt{or} do~kontroli przepływu. (Ogólna zasada: jeśli używasz nawiasów, to~znaczy, że~używasz złych operatorów).
+    \item Unikaj wielolinikowej instrukcji \texttt{?:}, użyj \texttt{if}.
+    \item Zaniechaj użycia nawiasów przy wywołaniu metod, ale użyj ich podczas wywołania ,,funkcji'' (np.~gdy używasz zwracanej wartości w~tym samym wierszu)
+    \item Używaj raczej \mbox{\texttt{\{} \ldots \texttt{\}}} niż \mbox{\texttt{do} \ldots \texttt{end}}. Wielolinijkowe bloki \mbox{\texttt{\{} \ldots \texttt{\}}} są~w~porządku: używając \texttt{\}} na końcu bloku wiemy, że~kończy się blok a~nie instrukcja \texttt{if}/\texttt{while}/\ldots. Używaj \mbox{\texttt{do} \ldots \texttt{end}} do~kontroli przepływu (np.~zadania \texttt{rake}, bloki \texttt{sinatra}).
+    \item Unikaj używania słowa kluczowego \texttt{return} jeśli nie jest potrzebne.
+    \item Unikaj kontynuacji linii (\texttt{$ \backslash $}) jeśli nie musisz.
+    \item Używanie zwracanej wartości przez operator \texttt{=} jest na miejscu.
+    \item Używaj operatora \texttt{||=}.
+    \item Używaj wyrażeń regularnych typu ,,non-OO''.  Nie bój się używać \texttt{=~}, \texttt{\$0-9}, \texttt{\$~}, \texttt{\$`} oraz~\texttt{\$'} jeśli potrzebujesz.
+  \end{enumerate}
+  \item Nazewnictwo:
+  \begin{enumerate}
+    \item Używaj snake\_case jako stylu nazywania metod.
+    \item Używaj CamelCase jako stylu nazywania klas i~modułów (Pozostaw akronimy takie jak HTTP, RFC, XML z~wielkich liter).
+    \item Używaj SCREAMING\_SNAKE\_CASE jako stylu nazywania stałych.
+    \item Długość nazwy zwykle określa kontekst wykorzystania. Używaj jednoliterowych zmiennych jako parametrów bloków/metod według tego schematu:\\
+      \texttt{a}, \texttt{b}, \texttt{c}, \texttt{o}: dowolny obiekt;\\
+      \texttt{d}: katalog;\\
+      \texttt{e}: element (klasy Emumerable oraz~pochodnych);\\
+      \texttt{ex}: wyjątek;\\
+      \texttt{f}: plik:\\
+      \texttt{i}, \texttt{j}: indeksy;\\
+      \texttt{k}: klucz tablicy asocjacyjnej;\\
+      \texttt{m}: metoda;\\
+      \texttt{r}: zwracana wartość krótkich metod;\\
+      \texttt{s}: tekst;\\
+      \texttt{v}: wartość elementu tablicy asocjacyjnej;\\
+      \texttt{x}, \texttt{y}, \texttt{z}: liczby;\\
+      Ponadto pierwsza litera klasy obiektu może posłużyć za~nazwę takiej zmiennej.
+
+    \item Używaj nazw zaczynających się od~\texttt{\_} dla nieużywanych zmiennych.
+    \item Używając \texttt{inject} dla krótkich bloków nazywaj argumenty \texttt{|a, e|} (od:~akumulator, element).
+    \item Definiując operatory dwuargumentowe, nazywaj argument jako ,,other''.
+    \item Używaj raczej \texttt{map} niż \texttt{collect}, \texttt{find} niż \texttt{detect}, \texttt{find\_all} niż \texttt{select} oraz~\texttt{size} niż \texttt{length}.
+  \end{enumerate}
+  \item Komentarze:
+  \begin{enumerate}
+    \item Komentarze dłuższe niż słowo rozpoczynają się z~wielkiej litery i~używane są zasady interpunkcji.
+    \item Używaj dwóch spacji po każdej kropce w komentarzu.
+    \item unikaj nie potrzebnych komentarzy.
+  \end{enumerate}
+  \item Pozostałe:
+  \begin{enumerate}
+    \item Pisz kod przyjazny dla opcji \texttt{ruby -w}.
+    \item Unikaj tablic asocjacyjnych jako opcjonalnych parametrów. Być może metoda, którą piszesz robi zbyt wiele?
+    \item Unikaj długich metod.
+    \item Unikaj długich list parametrów.
+    \item Używaj konstrukcji \texttt{def self.}\textit{metoda} dla zdefiniowania metod singletonów.
+    \item Staraj się rozwijać funkcjonalność standardowych metod.
+    \item Unikaj \texttt{alias} -- używaj \texttt{alias\_method}.
+    \item Używaj \texttt{OptionParser} do~parsowania skomplikowanych opcji wejścia konsoli a~\texttt{ruby -s} dla rozwiązań trywialnych.
+    \item Staraj się zachować zgodność wielu wersji interpretera.
+    \item Unikaj zbędnego metaprogramowania.
+  \end{enumerate}
+  \item Ogólne zasady:
+  \begin{enumerate}
+    \item Programuj w sposób funkcjonalny.
+    \item Nie wydziwiaj z~używaniem argumentów metod -- chyba, że~wiesz co robisz.
+    \item Nie zmieniaj funkcjonalności standardowych bibliotek pisząc własne.
+    \item Nie programuj zachowawczo\footnote{Patrz: \url{http://www.erlang.se/doc/programming\_rules.shtml\#HDR11}}.
+    \item Postaraj się zachować prostotę kodu.
+    \item Nie przesadź z~projektowaniem.
+    \item Ale także nie pozostaw swojej pracy niezaprojektowanej.
+    \item Unikaj błędów.
+    \item Poczytaj o innych konwencjach, aby móc rozwinąć tę.
+    \item Bądź konsekwentny.
+    \item Używaj prostych rozwiązań.
+  \end{enumerate}
+\end{enumerate}
+
+Stosowanie tej konwencji zapewni, że~kod napisany przez nas będzie zgodny z~ogólnym standardem, którego używają Rubyści na~całym świecie.
+
+\subsubsection{Nazewnictwo w~kodzie} \label{dokumentacja.nazewnictwo}
+
+Aby zrozumieć istotę działania projektu należy zrozumieć mechanizmy i~algorytmy rządzące jego logiką. Zakładając, że~chcemy dobrze odokumentować nasz projekt musimy tak napisać kod, by~był zrozumiały -- jak pseudokod opisujący algorytm. W~tym celu wystarczy, że~wszelkie obiekty, jakie tylko używamy w~naszym kodzie, nazwiemy tak, by~ich użycie w~kontekscie było zrozumiałe a~ich rola nie pozostawiała miejsca na zastanowienie. W~trakcie pisania kodu najtrudniejszą kwestią jest nazywanie obiektów a~nie -- jak to~się powszechnie uznaje -- rozwiązanie logiki systemu. Szczęśliwie dla programistów języka Ruby można stosować nawet bardzo długie nazwy obiektów (oczywiście nie wolno przesadzać) pozwalające opisać zastosowanie danego obiektu w~kodzie.
+
+
+Najlepszy do wyjaśnienia tej sytuacji będzie przykład:
+
+  \lstset{language=Ruby, caption=Algorytm DFS z~nazwami zmiennych o~niejasnym znaczeniu., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}
+  def wwd a, w, ko
+    return false if a.nil?
+    return true if a.d == v
+    ko.push a.r unless a.r.nil?
+    ko.push a.l unless a.l.nil?
+    dfs ko.pop, w, ko
+  end
+  \end{lstlisting}
+
+Taki kod nie jest czytelny. Potencjalny ,,czytelnik'' musi przemyśleć działanie kodu a~i~tak nie ma~pewności czy zrozumie przeznaczenie kodu.
+
+  \lstset{language=Ruby, caption=Algorytm DFS z~nazwami zmiennych nie mówiących o~przeznaczeniu kodu., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}
+  def dfs element, value, list
+    return false if element.nil?
+    return true if element.data == value
+    list.push element.right unless element.right.nil?
+    list.push element.left unless element.left.nil?
+    dfs list.pop, value, list
+  end
+  \end{lstlisting}
+
+Tu kod został opatrzony lepszymi nazwami. Co~prawda ,,czytelnik'' jest w~stanie domyśleć się (i~to~dość szybko) co~ten kod ,,robi'', ale przeznaczenie kodu nadal nie jest znane.
+
+Nasz pierwszy przykład stanowi kod napisany w~sposób przyjazny potencajnemu ,,czytelnikowi''. W~tym przykładzie widać już ,,na~pierwszy rzut oka'' jaką rolę spełnia kod, jakie jest jego przeznaczenie, a~w razie potrzeby można taki kod rozbudować (np.~w~celu dodania funkcjonalności).
+
+
+Aby całkowicie opisać problem nazewnictwa obiektów w~kodzie przedstawiam ostatni przykład:
+  \lstset{language=Ruby, caption=Algorytm DFS -- mylące nazwy zmiennych., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}
+  def st element, value, stack
+    return false if element.nil?
+    return true if element.value == value
+    stack.push element.predecessor unless element.predecessor.nil?
+    stack.push element.follower unless element.follower.nil?
+    dfs stack.pop, value, stack
+  end
+  \end{lstlisting}
+
+W~tym przykładzie natomiast nazwy zostały specjalnie zmienione tak by~ukryć przeznaczenie przed oczyma potencjalnego ,,czytelnika''. W poprzednim przykładzie widzieliśmy jaki jest cel tego fragmentu kodu. Tutaj jesteśmy zakłopotani, gdyż nie rozumiemy przeznaczenia tego algorytmu.
+
+\subsubsection{Zasada dziel i~zdobywaj} \label{dokumentacja.dzielizdobywaj}
+
+W~\textit{The Ruby Style} czytamy, że~powinniśmy unikać długich metod. Dlaczego długie metody są~złe? Ponieważ utrudniają czytanie i~zniechęcają do~zapoznania się z ich treścią. Podam tutaj przykład takiej metody:
+
+  \lstset{language=Ruby, caption=Obszerna metoda wykonująca algorytm Levenshtein'a., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}
+def levenshtein s, t
+  cost = 0
+  d = Array.new
+  m = s.length
+  n = t.length
+  0.upto(m) do |i|
+    d[i] = Array.new
+  end
+  0.upto(m) do |i|
+    d[i][0] = i
+  end
+  1.upto(n) do |j|
+    d[0][j] = j
+  end
+  1.upto(m) do |i|
+    1.upto(n) do |j|
+      cost = (s[i-1,1] == t[j-1,1]) ? 0 : 1
+      d[i][j] = [(d[i - 1][j] + 1), (d[i][j - 1] + 1), \\
+        (d[i - 1][j - 1] + cost)].min
+    end
+  end
+  return d[m][n]
+end
+  \end{lstlisting}
+
+Metoda ta~może zostać zapisana w~prostszy sposób. Wystarczy logiczne fragmenty metody zamienić na~inne metody:
+
+  \lstset{language=Ruby, caption=Metoda z~poprzedniego przykładu podzielona na~mniejsze metody., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}
+def levenshtein s, t
+  a = initiate s.length, t.length
+  calculate a
+end
+
+def initiate m, n
+  array = Array.new
+  0.upto(m) do |i|
+    array[i] = [i]
+  end
+  1.upto(n) do |j|
+    array.first[j] = j
+  end
+  array
+end
+
+def calculate array
+  cost = 0
+  1.upto(array.size) do |i|
+    1.upto(array.first.size) do |j|
+      cost = (s[i - 1][1] == t[j - 1][1]) ? 0 : 1
+      d[i][j] = [(d[i - 1][j] + 1), (d[i][j - 1] + 1), \\
+        (d[i - 1][j - 1] + cost)].min
+    end
+  end
+  array.last.last
+end
+  \end{lstlisting}
+
+Co przy tym zyskujemy? Metoda nas interesująca jest krótsza -- łatwiej się ją~czyta, łatwiej znaleźć w~niej potencjalne błędy. Można także opisać kod stosując odpowiednie nazwy metod wywoływanych przez naszą metodę -- dzięki temu nie musimy zagłębiać się dokładnie w~działanie metody ale poznajemy kolejność wykonywanych w~niej operacji. Podział taki może nawet paradoksalnie zmniejszyć objętość naszego kodu -- jedna z~metod może wykonać się kilkukrotnie w~danej części kodu. W~przyszłości może to~pomóc nawet w~optymalizacji kodu.
+
+\subsubsection{Zen programisty języka Ruby} \label{dokumentacja.zenruby}
+
+,,Właściwie napisany kod staje się dobrą dokumentacją samego siebie''. Programiści języka Python byli jednymi z~pierwszych i~najbardziej zagorzałych zwolenników tej koncepcji. Aby to zaakcentować powstał krótki dokument o nazwie ,,The Zen of Python'' autorstwa Tima Petersa \cite{zenpython}. Dokument ten można przeczytać wpisując w~konsoli języka Python polecenie: \texttt{import this}. Oto treść tego dokumentu \footnote{Tłumaczenie wzięte z \url{http://pl.python.org/forum/index.php?topic=392.0}}:
+
+\begin{enumerate}
+  \item Piękne jest lepsze niż brzydkie.
+  \item Wyrażone wprost jest lepsze niż domniemane.
+  \item Proste jest lepsze niż złożone.
+  \item Złożone jest lepsze niż skomplikowane.
+  \item Płaskie jest lepsze niż wielopoziomowe.
+  \item Rzadkie jest lepsze niż gęste.
+  \item Czytelność się liczy.
+  \item Sytuacje wyjątkowe nie są~na~tyle wyjątkowe, aby łamać reguły.
+  \item Choć praktyczność przeważa nad konsekwencją.
+  \item Błędy zawsze powinny być sygnalizowane.
+  \item Chyba że zostaną celowo ukryte.
+  \item W razie niejasności powstrzymaj pokusę zgadywania.
+  \item Powinien być jeden -- i~najlepiej tylko jeden -- oczywisty sposób na~zrobienie danej rzeczy.
+  \item Choć ten sposób może nie być oczywisty jeśli nie jest się Holendrem.
+  \item Teraz jest lepsze niż nigdy.
+  \item Chociaż nigdy jest często lepsze niż natychmiast.
+  \item Jeśli rozwiązanie jest trudno wyjaśnić, to~jest ono złym pomysłem.
+  \item Jeśli rozwiązanie jest łatwo wyjaśnić, to~może ono być dobrym pomysłem.
+  \item Przestrzenie nazw to~jeden z niesamowicie genialnych pomysłów -- miejmy ich więcej!
+\end{enumerate}
+
+Ze względu na~to, że~język Ruby rządzi się nieco innymi zasadami niż język Python, pokusiłem się o~napisanie \textit{The Zen of Ruby} \footnote{\url{https://github.com/placek/ruby\_tao/blob/master/zen\_of\_ruby.txt}}:
+
+\begin{enumerate}
+  \item Beautiful is better than ugly.
+  \item Explicit is better than implicit.
+  \item Simple is better than complex.
+  \item Complex is better than complicated.
+  \item Flat is better than nested.
+  \item Sparse is better than dense.
+  \item Readability counts.
+  \item Special cases aren't special enough to break the rules.
+  \item Errors should never pass silently.
+  \item Unless explicitly silenced.
+  \item In the face of ambiguity, refuse the temptation to guess.
+  \item There's more than one way to do it.
+  \item Although all of them may be inappropriate.
+  \item Now is better than never.
+  \item Although never is often better than right now.
+  \item If the implementation is hard to explain, it's a bad idea.
+  \item If the implementation is easy to explain, it may be a good idea.
+  \item Divide and abbreviate the code.
+\end{enumerate}
+
+Oraz w~wersji po~polsku:
+
+\begin{enumerate}
+  \item Piękne jest lepsze niż brzydkie.
+  \item Wyrażone wprost jest lepsze niż domniemane.
+  \item Proste jest lepsze niż złożone.
+  \item Złożone jest lepsze niż skomplikowane.
+  \item Płaskie jest lepsze niż wielopoziomowe.
+  \item Rzadkie jest lepsze niż gęste.
+  \item Czytelność się liczy.
+  \item Sytuacje wyjątkowe nie są~na~tyle wyjątkowe, aby łamać reguły.
+  \item Błędy zawsze powinny być sygnalizowane.
+  \item Chyba że zostaną celowo ukryte.
+  \item W razie niejasności powstrzymaj pokusę zgadywania.
+  \item Istnieje wiele sposobów na~rozwiązanie danego problemu.
+  \item Aczkolwiek każdy może być nie najlepszym.
+  \item Teraz jest lepsze niż nigdy.
+  \item Chociaż nigdy jest często lepsze niż natychmiast.
+  \item Jeśli rozwiązanie jest trudno wyjaśnić, to~jest ono złym pomysłem.
+  \item Jeśli rozwiązanie jest łatwo wyjaśnić, to~może ono być dobrym pomysłem.
+  \item Dziel i~zdobywaj!
+\end{enumerate}
+
+\subsection{Komentarze} \label{dokumentacja.komentarze}
+
+Komentarze w~kodzie to~dobrzy sposób na~wyjaśnienie zasadności użycia algorytmów, bądź struktury API poszczególnych elementów kodu. Stosowanie komentarzy pozwala także wyróżnić co~ważniejsze dla ,,czytelnika'' elementy kodu.
+
+\subsubsection{RDoc} \label{dokumentacja.rdoc}
+
+Istnieje wiele konwencji co~do~formy komentarzy. Format komentarzy ma~znaczenie nie tylko podczas czytania kodu -- może on~posłużyć pośrednio do~wygenerowania pełnej dokumentacji API przy użyciu odpowiednich narzędzi.
+
+
+Komentarze w~języku Ruby mogą być dwojakiego formatu:
+
+  \lstset{language=Ruby, caption=Komentarze w~języku Ruby., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}
+    # Komentarz jednolinijkowy rozpoczyna sie
+    # od znaku krzyzyka.
+
+    =begin
+      Blok komentarza.
+      Taki blok rozpoczyna sie od znacznika "=begin"
+      a konczy na znaczniku "=end".
+      Komentarze jednolinijkowe sa jednak czesciej
+      uzywane.
+    =end
+  \end{lstlisting}
+
+
+Narzędzie \textit{RDoc}\footnote{Patrz: \url{rdoc.sourceforge.net}} to~narzędzie konsolowe generujące dokumentację API w~zadanym formacie (standardowo jest to~HTML) na~podstawie kodu oraz~komentarzy w~nim zawartych. Aby wygenerować taką dokumentację wystarczy wpisać w~konsoli:
+
+\mbox{\texttt{\$ rdoc <opcje> [plik...] }}
+
+\textit{RDoc} Wygeneruje dla nas czytelną dokumentację nawet jeśli nie opatrzymy kodu komentarzami. Mimo to~lepiej jest napisać takie komentarze. \textit{RDoc} oferuje specyficzny format treści komentarzy:
+
+\begin{enumerate}
+  \item Listy (wypunktowanie) tworzymy poprzez ustawienie na~początku linii gwiazdki~\texttt{*} bądź minusa \texttt{-}.\\
+    \texttt{- Pierwszy punkt.\\- Drugi punkt.\\- \ldots}
+  \item Listy numerowane tworzymy poprzez ustawienie numeru oraz~kropki na początku linii.\\
+    \texttt{1. Pierwszy punkt.\\2. Drugi punkt.\\3. \ldots}
+  \item Słowniki tworzymy poprzez wstawienie dwóch dwukropków po~tłumaczonym słowie.\\
+    \texttt{kot:: Małe domowe zwierzątko.\\tygrys::    Nieco większe dzikie zwierzątko.}
+  \item Nagłówki generowane są~poprzez wstawienie znaku \texttt{=} na początku linii. Mogą istnieć trzy poziomy nagłówków.\\
+    \texttt{= Nagłówek pierwszego rzędu\\== Nagłówek drugiego rzędu\\=== Nagłowek trzeciego rzędu}
+  \item Poziomą linię wstawiamy poprzez podanie sekwencji co~najmniej trzech minusów \texttt{-}.\\
+    \texttt{-----------}
+  \item Kursywę, pogrubienie i~podkreślenie możemy zastosować na~słowie otaczając słowo podkreślnikiem \texttt{\_}, gwiazdką \texttt{*}, bądź plusem \texttt{+}.\\
+    \texttt{\_italic\_  *bold*  +underline+}
+\end{enumerate}
+
+Ponadto możemy użyć dodatkowych znaczników by~kontrolować wygląd naszej dokumentacji w~docelowym formacie (np.~w~HTML).
+
+\begin{enumerate}
+  \item Nazwy klas, metod występujące w~komentarzach zamieniane są~automatycznie na~odnośniki do~konkretnych miejsc w~dokumentacji.
+  \item Odnośniki zaczynające się od: \texttt{http:}, \texttt{mailto:} albo \texttt{www.} są~rozpoznawane jako linki. Odnośnik HTTP, który wskazuje na obrazek wstawia obrazek w linijce. Adresy zaczynające się od \texttt{link:} traktowane są~jako odnośniki do~lokalnych plików.
+  \item Hiperłącza mogą być także tworzone według schematu:\\
+    \textit{nazwa}\texttt{[}\textit{url}\texttt{]}
+  \item Słowo kluczowe \texttt{:title:} pozwala ustawić tytuł strony dokumentacji.
+\end{enumerate}
+
+\subsection{Testy} \label{dokumentacja.testy}
+
+Testy to~dodatkowe aplikacje sprawdzające poprawność logiki naszego projektu. Zasadniczą ich funkcją jest dowiedzenie, że~dana funkcjonalność została zaimplementowana.
+
+
+Testować w~naszej aplikacji możemy wszystko, jednak dobrze jest ustalić co~chcemy uzyskać poprzez napisanie testów. Biorąc pod uwagę powyższe kryterium testy dzielimy na:
+
+\begin{enumerate}
+ \item testy jednostkowe. Testami jednostkowymi nazywamy testy, które sprawdzają poprawność modułów ,,silnika'' aplikacji. Za~pomocą testów jednostkowych testuje się zwykle klasy, metody, stany maszyny, poprawność algorytmów, wejścia i~wyjścia strumieni itp.
+ \item testy behawioralne. Testy takie odpowiadają na~pytanie: ,,co~się stanie, gdy zrobimy \ldots''. Testują one zachowanie aplikacji -- reakcję na~żądania, efekty działania zdarzeń (takich jak wypełnienie formularza) itp.
+\end{enumerate}
+
+\subsubsection{Testy jednostkowe RSpec} \label{dokumentacja.rspec}
+
+\textit{RSpec}\footnote{Patrz: \url{rspec.info}} jest narzędziem do~tworzenia testów jednostkowych dla aplikacji napisanych w~języku Ruby. Jego składnia jest prosta, a~testy napisane w~nim -- czytelne:
+
+  \lstset{language=Ruby, caption=Test RSpec testujący klasę \texttt{Array}., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}} \label{code.prostytest}
+  \begin{lstlisting}
+  describe Array do
+    describe "#push" do
+      it "puts a value at the end of array" do
+        array = Array.new
+        value = "Some value"
+        array.push value
+        array.last.should == value
+      end
+    end
+  end
+  \end{lstlisting}
+
+W~pierwszej kolejności podajemy opis testu -- krótką informację o~tym co~testujemy i~jakie mamy oczekiwania względem testowanego obiektu. Wewnątrz bloku testu realizujemy przypadek użycia naszego obiektu. W~każdym momencie możemy sprawdzić, czy interesujący nas stan obiektu jest zgodny z~naszymi oczekiwaniami. W~tym celu używamy metod \texttt{should} oraz~\texttt{should\_not}.
+
+
+Testy uruchamiamy podając w~konsoli polecenie \texttt{rspec} oraz~plik z~napisanymi przez nas testami:
+
+\mbox{\texttt{\$ rspec nazwa\_pliku\_testu.rb}}
+
+Trzeba pamiętać, że~testy powinny mieć dostęp do~logiki naszego projektu -- np.~poprzez użycie instrukcji \texttt{require}. Efektem działania naszego testu (z~przykładu \ref{code.prostytest}) będzie:
+
+  \lstset{language=bash, caption=Efekt uruchomienia testu jednostkowego z~poprzedniego przykładu., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}
+.
+
+Finished in 0.00258 seconds
+1 example, 0 failures
+  \end{lstlisting}
+
+Aby zrozumieć, co~stało się podczas testowania, możemy zmienić format wyjścia na~bardziej przyjazny człowiekowi (użyjemy do~tego opcji \texttt{----format d}):
+
+  \lstset{language=bash, caption=Efekt uruchomienia testu jednostkowego z~opcją \texttt{----format d}., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}
+Array
+  #push
+    puts a value at the end of array
+
+Finished in 0.0029 seconds
+1 example, 0 failures
+\end{lstlisting}
+
+Jak widać \texttt{rspec} poinformował nas o~tym, które testy ,,przeszły'' -- czyli, które z~testowanych przez nas funkcjonalności spełniły nasze oczekiwania. Dla jasności podam jeszcze jeden przykład testów jednostkowych:
+
+  \lstset{language=bash, caption=Efekt uruchomienia testu jednostkowego z~opcją \texttt{----format d}., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}} \label{code.testzly}
+  \begin{lstlisting}
+describe Array do
+  describe "#push" do
+    it "puts a value at the end of an array" do
+      array = Array.new
+      value = "Some value"
+      array.push value
+      array.last.should == value
+    end
+    it "increases a size of an array of one" do
+      array = Array.new
+      array_size = array.size
+      array.push "Some value"
+      array.size.should == (array_size + 1)
+    end
+  end
+  describe "#pop" do
+    it "gets a value from the end of an array" do
+      array = Array.new
+      value = "Some value"
+      array.push value
+      array.pop.should == value
+    end
+    it "increases a size of an array of one" do
+      array = Array.new
+      array.push "Some value"
+      array_size = array.size
+      array.pop
+      array.size.should == (array_size + 1)
+    end
+  end
+end
+  \end{lstlisting}
+
+Uruchamiając testy poprzez podanie \texttt{rspec} bez opcji \texttt{----format d} otrzymujemy:
+
+  \lstset{language=bash, caption=Efekt uruchomienia testu jednostkowego dla przykładu \ref{code.testzly}., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}
+
+...F
+
+Failures:
+  1) Array#pop increases a size of an array of one
+     Failure/Error: array.size.should == (array_size + 1)
+     expected: 2,
+          got: 0 (using ==)
+     # ./array_spec.rb:28
+
+Finished in 0.00951 seconds
+4 examples, 1 failure
+  \end{lstlisting}
+
+Jak widać pewne testy nie przechodzą. Oznacza to, że~albo funkcjonalność nas interesująca nie jest zgodna z~naszym założeniem, albo oczekujemy od~niej zbyt wiele. Po uruchomieniu testów z opcją \texttt{----format d} otrzymujemy w~wyniku:
+
+  \lstset{language=bash, caption=Efekt uruchomienia testu jednostkowego dla przykładu \ref{code.testzly} z~opcją \texttt{----format d}., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}
+Array
+  #push
+    puts a value at the end of an array
+    increases a size of an array of one
+  #pop
+    gets a value from the end of an array
+    increases a size of an array of one (FAILED - 1)
+
+Failures:
+  1) Array#pop increases a size of an array of one
+     Failure/Error: array.size.should == (array_size + 1)
+     expected: 2,
+          got: 0 (using ==)
+     # ./array_spec.rb:28
+
+Finished in 0.00692 seconds
+4 examples, 1 failure
+  \end{lstlisting}
+
+\subsubsection{RSpec jako dokumentacja}
+
+
+Przykład \ref{code.prostytest} mówi nam dość dużo o~sposobie użycia elementów logiki naszego projektu. Testy jednostkowe są~tak naprawdę (jak już wspomniałem) przypadkami użycia tychże elementów. Co~więcej -- przypadki te~realizują się zgodnie z~założeniami twórcy takiego projektu (uruchomione testy ,,przechodzą''). Oznacza to, że~są one dobrą dokumentacją działania i~sposobu użycia poszczególnych obiektów logiki projektu.
+
+\subsubsection{Dokumentacja poprzez testy behawioralne} \label{dokumentacja.cucumber}
+
+Skoro testy jednostkowe są~swego rodzaju dokumentacją, to~także testy behawioralne mogą nią być. Oczywiście ze~względu na~inny cel testy behawioralne będą dokumentować projekt z~innej perspektywy. Testy te~określają zachowanie aplikacji, a~zatem kwestii ściśle związanej z~użytkowaniem. W~praktyce testy behawioralne są~stosowane dla określenia wymagań ze~strony klienta -- zleceniodawcy projektu.
+
+
+Istnieje kilka narzędzi, przy pomocy których można napisać i~przeprowadzić testy behawioralne. Można do~tego użyć \texttt{rspec} oraz~\texttt{Test::Unit} (czyli narzędzi wykorzystywanych przy pisaniu testów jednostkowych). Dla dobrej czytelności oraz~eleganckiego formatu używam narzędzia \textit{Cucumber}\footnote{Patrz: \url{cukes.info}}.
+
+\subsection{System kontroli wersji} \label{dokumentacja.git}
+
+Systemy kontroli wersji pozwalają na~współdzielenie kodu projektu oraz~jednoczesną pracę nad nim wielu programistom. Systemy takie przechowują także pełną historię zmian zachodzących w~projekcie, w~tym: informacje o~autorze zmian, informacje o~czasie modyfikacji, wersje plików przed i~po~modyfikacji itp. Informacje te~są~niezwykle cenne jako dokumentacja opisująca pracę zespołu. Na~podstawie logów można określić np.~trudność realizacji danego zagadnienia (na~podstawie czasu wykonania bądź dodanych linii kodu), aktywność programistów oraz~temu podobne.
+
+
+Przykładową dokumentacją przebiegu pracy nad projektem może być log narzędzia \textit{Git}\footnote{Patrz: \url{git-scm.com}} wygenerowany za~pomocą polecenia:
+
+\mbox{\texttt{\$ git log}}
+
+  \lstset{language=bash, caption=Log narzędzia \textit{Git} dla pewnego projektu., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}
+
+commit aaf288534af2ed15da3ca1b200025b8be4c3526b
+Author: Pawel Placzynski <placek@example.com>
+Date:   Fri Dec 10 14:47:45 2010 +0100
+
+    Updated mongodb
+
+commit 06fdd81b0104186f9f449487a9a1ceb92d4101f6
+Author: Kamil Zygmuntowicz <kamil.zygmuntowicz@example.com>
+Date:   Fri Dec 3 11:10:25 2010 +0100
+
+    Added rspec on [#6412487]
+
+commit d081a370bf60f8ef0b8678602b4745b0b5e00d39
+Author: andst4@example.com <andrzej@andrzej-laptop.(none)>
+Date:   Fri Dec 3 09:54:04 2010 +0100
+
+    Copying query with name.
+
+commit 65d7d3daa13eabba81ed23cad8117c59e6a44e74
+Author: Sebastian Wojtczak <wojtczaksebastian@example.com>
+Date:   Tue Nov 30 17:11:39 2010 +0100
+
+    [6672367] Removed unnecessary border on app dashboard.
+
+commit 818a69e07cf665021a4bb01cb5ed533020c8ada5
+Author: Sebastian Wojtczak <wojtczaksebastian@example.com>
+Date:   Sat Nov 27 21:32:03 2010 +0100
+
+    [#6760943] Sort helper
+
+  \end{lstlisting}
+
+\subsection{UML} \label{dokumentacja.uml}
+
+Ostatnią, chyba najlepszą dla tak zwanych ,,wzrokowców'', formą dokumentacji jest opisywanie struktur oraz~zachowań projektu przy pomocy diagramów UML. UML (z~ang.~Unified Modeling Language, czyli Zunifikowany Język Modelowania) jest formalnym językiem pozwalającym na modelowanie różnego rodzaju systemów (w~tym systemów informatycznych). Język ten jest używany w~większości przypadków raczej jako model przyszłego (mającego powstać) systemu a~rzadziej jako dokumentacja istniejącego już systemu. Jednak w~myśl zasad inżynierii wstecznej\footnote{Patrz: \url{http://www.npd-solutions.com/reoverview.html}} każda forma opisywania systemu jest jak najbardziej poprawną formą dokumentacji tegoż systemu.
+
+
+Okazuje się, że~UML jest jedną z~bardziej czytelnych form dokumentacji, a~co~za~tym idzie -- szybką i~praktyczną w~użytkowaniu. Diagramy mają to~do~siebie, że~szybko wpadają w~pamięć, łatwiej przyswoić noszoną przez nie treść a~także zrozumieć co~bardziej skomplikowane aspekty tej treści.

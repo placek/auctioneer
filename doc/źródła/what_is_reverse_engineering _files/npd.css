@@ -1,0 +1,370 @@
+
+	.black
+	{		
+		color: black;
+		}
+
+	.blackunderline
+	{
+	color: Black;
+	text-decoration : underline;
+}
+
+	.blue
+	{
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-weight: normal;
+		font-size: 10pt;
+		color: Blue;
+		position: relative;
+		}
+
+	.gray
+	{		
+		color: gray;
+		}
+
+	.green
+	{		
+		color: green;
+		}
+
+	.indent
+	{		
+		margin-left: .5in;
+		position: relative;
+		}
+
+	.large
+	{
+		font-family: 'Arial', 'Sans-Serif';
+		font-weight: bold;
+		font-size: 16pt;
+		color: Black;
+		text-align: left;
+		position: relative;
+		}
+
+	.smallnavy
+	{
+		color: navy;
+		text-decoration : underline;
+		}
+
+	.smallwhite
+	{
+		color: white;
+		font-size : 8pt;
+		}
+
+	.smallnavynu
+	{color: navy; font-size: 8pt;}
+
+	.navyborder
+	{
+	   border-width : thin;
+	   border-color : Navy;
+	   border-style : solid;
+        }
+
+	.noindent
+	{
+		margin-left: 0;
+		position: relative;
+		}
+
+	.red
+	{		
+		font-family: 'Arial', 'Sans-Serif';
+		font-weight: normal;
+		font-size: 8pt;
+		color: #FF0000;
+		text-align: center;
+		position: relative;
+		}
+
+	.red2
+	{		
+		color: red;
+		}
+
+	.small
+	{		
+		font-family: 'Arial', 'Sans-Serif';
+		font-weight: normal;
+		font-size: 8pt;
+		text-align: center;
+		}
+		
+	.x-large
+	{
+		font-family: 'Arial', 'Sans-Serif';
+		font-weight: bold;
+		font-size: 18pt;
+		color: Black;
+		text-align: left;
+		position: relative;
+		}
+
+	A.active
+	{		
+		color: #FF0000;
+		}
+
+	A.link 
+	{ 
+		color: #FFFF00 
+		}
+
+	A.visited
+	{		
+		color: #990099;
+		}
+
+	B
+	{
+		color: Black;
+		position: relative;
+		}
+
+	BLOCKQUOTE
+	{
+	font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+	font-weight: normal;
+	font-size: 10pt;
+	color: Black;
+	position: relative;
+	margin-left: .5in;
+}
+
+	.button
+	{
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-size: 8pt;
+		color: #000066;
+		vertical-align : middle;
+		position: relative;
+		background-image : url(button.jpg);
+		height : 56px;
+		text-align : center;
+		padding : 6px;
+		width : 98px;
+		}
+
+	.sbutton
+	{
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-size: 8pt;
+		color: #000066;
+		vertical-align : middle;
+		position: relative;
+		background-image : url(sbutton.jpg);
+		height : 36px;
+		text-align : center;
+		padding : 6px;
+		width : 90px;
+		}
+
+	.center
+	{
+		text-align : center;
+		}
+
+	CAPTION
+	{
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-weight: normal;
+		font-size: 10pt;
+		color: Black;
+		margin-left: .1in;
+		position: relative;
+		}
+
+	DD
+	{
+	font: 10pt 'Arial', 'Helvetica', 'Sans-Serif';
+	color: black;
+	position: relative;
+}
+
+	DIV
+	{		
+		position: relative;
+		}
+
+	DT
+	{
+		font: Bold large 'Arial', 'sans-serif';
+		color: Black;
+		padding-left: 2pt;
+		position: relative;
+		left: .5cm;
+		}
+
+	H1
+	{		
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-weight: bold;
+		font-size: x-large;
+		color: white;
+		text-align: Center;
+		position: relative;
+		}
+
+	H2
+	{		
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-weight: bold;
+		font-size: large;
+		color: white;
+		text-align: Center;
+		position: relative;
+		}
+
+	H3
+	{		
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-weight: bold;
+		font-size: 14pt;
+		color: white;
+		text-align: Center;
+		position: relative;
+		}
+
+	H4
+	{		
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-size: 12pt;
+		color: white;
+		text-align: Center;
+		}
+
+	H5
+	{		
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-weight: bold;
+		font-size: 12pt;
+		color: navy;
+		position: relative;
+		}
+
+	H6
+	{
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-weight: bold;
+		font-size: 10pt;
+		color: Navy;
+		margin-left: .5in;
+		position: relative;
+		}
+
+	I
+	{
+		position: relative;
+		}
+
+	LI
+	{		
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-size: 10pt;
+		color:black;
+		position: relative;
+		}
+
+	OL
+	{		
+		position: relative;
+		margin-left: .5in;
+		}
+
+	P
+	{		
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-weight: normal;
+		font-size: 10pt;
+		text-align: left;
+		color: black;
+		position: relative;
+		}
+
+	PRE
+	{		
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-weight: bold;
+		font-size: 10pt;
+		color: black;
+		text-align: left;
+		margin-left: .5in;
+		position: relative;
+		}
+
+	TABLE
+	{
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-weight: normal;
+		font-size: 10pt;
+		color: Black;
+		position: relative;
+		vertical-align : top;
+		text-align : left;
+		padding: 0pt;
+		}
+		
+	TABLE.button
+	{
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-weight: normal;
+		font-size: 8pt;
+		color: #000066;
+		position: relative;
+		vertical-align : middle;
+		text-align : center;
+		padding : 4pts;
+		}
+
+	TABLE.navyborder
+	{
+	font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+	font-weight: normal;
+	font-size: 10pt;
+	color: Black;
+	position: relative;
+	vertical-align : top;
+	text-align : left;
+	padding: 1pt;
+	border : thin solid Navy;
+}
+		
+	TD
+	{
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-size: 10pt;
+		color: Black;
+		position: relative;
+		font-style : normal;
+		vertical-align : top;
+		}
+
+	TH
+	{
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-weight: bold;
+		font-size: 10pt;
+		color: Black;
+		position: relative;
+		}
+
+	TR
+	{
+		font-family: 'Arial', 'Helvetica', 'Sans-Serif';
+		font-weight: normal;
+		font-size: 10pt;
+		color: Black;
+		position: relative;
+		}
+
+	UL
+	{		
+		position: relative;
+		margin-left: .5in;
+		}
