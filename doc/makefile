@@ -3,7 +3,12 @@ main: main.pdf
 
 main.pdf:
 	pdflatex main.tex
-
+	pdflatex main.tex
+	evince praca_inzynierska.pdf
 
 clean:
-	rm *.aux *.log *.lof *.out *.toc
+	rm -f *.aux
+	rm -f *.log
+	rm -f *.lof
+	rm -f *.out
+	rm -f *.toc
