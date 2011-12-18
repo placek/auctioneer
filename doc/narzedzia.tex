@@ -2,28 +2,96 @@
 
 \subsection{Kontrola pracy w~Scrum}
 
-\begin{enumerate}
-  \item \texttt{git}\footnote{\url{http://git-scm.com/}} -- system kontroli wersji bazujący na~przechowywaniu plików różnic -- tzw. plików diff.
-  \item \texttt{tig} narzędzie \texttt{ncurses} służące do~prostego zarządzania repozytorium \texttt{git}
-  \item \texttt{ticgit}\footnote{\url{https://github.com/schacon/ticgit/wiki/}} -- issue tracker działajacy jako rozszerzenie dla systemu kontroli wersji git; zapisuje zmiany w~trackingu w oddzielnej gałęzi repozytorium git projektu.
-\end{enumerate}
+\subsubsection{Git}
+
+Git\footnote{\url{http://git-scm.com/}} to~rozproszony system kontroli wersji. Stworzył go~Linus Torvalds jako narzędzie wspomagające rozwój jądra Linux. Git stanowi wolne oprogramowanie i~został opublikowany na~licencji GNU~GPL w~wersji~2.
+
+
+Pierwsza wersja narzędzia Git została wydana 7~kwietnia~2005 roku, by~zastąpić poprzednio używany w~rozwoju Linuksa, niebędący wolnym oprogramowaniem, system kontroli wersji BitKeeper.
+
+
+Wiele projektów używa Gita jako systemu kontroli wersji, zarówno nowo powstających, jak i~migrują do~niego z~innego systemu kontroli wersji (np.~CVS lub SVN). Do~największych i~najbardziej znanych projektów o~otwartym źródle (a~więc również posiadających dużo użytkowników i~osób rozwiających, oraz ilość zmian), należy wymienić: jądro Linuksa oraz~podprojekty z~nim związane, a~także GNU~Hurd, GNOME, GTK+, GStreamer, KDE, GIMP, Perl, Qt, Ruby~on~Rails, Samba, Wine, Xfce, Xorg, jQuery, YUI, Erlang. Również część serwisów internetowych używa Gita do~rozwijania swojego kodu (a~część z~niego jest publicznie dostępna), m.in.~Reddit (otwarte źródła), digg, facebook.
+
+
+Kilka systemów operacyjnych korzysta z~Gita do~zarządzania całą dystrybucją oraz~dodatkowymi programami w~nie wchodzącymi: Arch Linux, Android, Fedora, Maemo, MeeGo, OLPC~XO-1, openSUSE oraz DragonFly~BSD. Dystrybucje Debian oraz~Ubuntu używają Gita do~rozwijania programów oraz~zmian w~programach zewnętrznych dla wielu (choć nie wszystkich) pakietów.
+
+
+O zaletach tego systemu kontrolii wersji można dowiedzieć się z~wypowiedzi jego twórcy Linusa Torvaldsa na~konferencji Google (\url{http://www.youtube.com/watch?v=4XpnKHJAok8}).
+
+\subsubsection{tig}
+
+\texttt{tig} to~narzędzie \texttt{ncurses} służące do~prostego zarządzania repozytorium \texttt{git}. Jest dobrą alternatywą dla wbudowanego w~pakiet narzędzi systemu Git \texttt{gitg}, pozwalającą na~wykorzystanie identycznych funkcjonalności w konsoli.
+
+\subsubsection{ticgit}
+
+\texttt{ticgit}\footnote{\url{https://github.com/schacon/ticgit/wiki/}} to~prosty issue tracker (narzędzie do zarządzania zadaniami zwiazanymi z~projektem) działajacy jako rozszerzenie dla systemu kontroli wersji Git; zapisuje zmiany w~trackingu w oddzielnej gałęzi repozytorium Git projektu. Pozwala to~na~przechowywanie dokumentacji dotyczącej rozwoju projektu wraz z~kodami źródłowymi.
+
+\texttt{ticgit} jest aplikacją konsolową, aczkolwiek istnieje rozszerzenie pozwalając na~zarządzanie zadaniami \texttt{ticgit} przy pomocy przeglądarki internetowej i~prostego interfejsu webowego (\url{https://github.com/schacon/ticgit/wiki/TicGitWeb}).
 
 \subsection{Środowisko programistyczne}
 
+\subsubsection{zsh + GNU Screen}
+
+Większość pracy nad projektem napisanym przy pomocy frameworku Ruby~on~Rails odbywa się w~konsoli. Jako powłoki (shell) używam powłoki Open-Source \texttt{zsh}\footnote{Patrz: \url{http://www.zsh.org/}}. Powłoka ta~udostępnia rozbudowany i~przyjazny użytkownikowi system podpowiedzi (system ten zintegrowany jest z~wieloma poleceniami konsoli, w~tym z~narzędziami systemu kontroli wersji Git), jak również udogodnienia dotyczące historii wykonywanych poleceń, autokorektę oraz~szereg opcji konfiguracji zachowania i~wyglądu.
+
+
+\texttt{screen}\footnote{Patrz: \url{http://www.gnu.org/software/screen/}} jest narzędziem pozwalającym na~sprawne zarządzanie uruchomionumi powłokami/poleceniami. Pozwala na:
+
 \begin{enumerate}
-  \item \texttt{zsh + screen}
-  \item \texttt{vim}\footnote{\url{http://www.vim.org/}} -- edytor tekstu.
-  \item \texttt{RVM}\footnote{\url{https://rvm.beginrescueend.com/}} -- system kontrolii wersji języka Ruby.
-  \item \texttt{IRB} -- interaktywna konsola języka Ruby.
-  \item \texttt{rspec} + \texttt{cucumber} -- patrz rozdział \ref{technologie.gemy}
-  \item \texttt{Sqliteman}\footnote{\url{http://sqliteman.com/}} -- narzędzie do~zarządzania bazami danych Sqlite3.
+  \item przełączanie się pomiędzy uruchomionymi powłokami/poleceniami,
+  \item pracę w~kilku oknach (widokach),
+  \item odłączanie się (deteach) i~pozwalanie na kontynuację wykonywanych poleceń (opcja przydatna podczas pracy zdalnej),
+  \item kopiowanie/wklejanie/przeszukiwanie ekranu konsoli,
+  \item wyświetlanie informacji o~systmie/procesach/itp. w~dolnej linijce ekranu,
+  \item a~także wiele więcej \ldots
 \end{enumerate}
+
+\subsubsection{Vim}
+
+Vim\footnote{\url{http://www.vim.org/}} według oficjalnej interpretacji oznacza \texttt{vi improved}. Jest to~wieloplatformowy klon edytora tekstu \texttt{vi}, napisany przez Brama Moolenaara, holenderskiego programistę.
+
+
+Vim jest edytorem dającym się w~dużym stopniu konfigurować. W~efekcie Vim może być surowy i~nieprzyjazny jak jego protoplasta lub przeciwnie: cieszyć intelekt i~oko bogactwem funkcji czy kolorów. Istnieje także możliwość rozbudowania umiejętności tego edytora poprzez dodawanie wtyczek (napisanych własnoręcznie lub pobranych ze~strony domowej projektu).
+
+
+Vim w ostatnich latach był kilkukrotnie wybierany na~najpopularniejszy edytor tekstowy wśród czytelników Linux Journal, wyprzedzając m.in.~Emacsa.
+
+\subsubsection{RVM}
+
+RVM\footnote{\url{https://rvm.beginrescueend.com/}} to~system kontrolii wersji języka Ruby. Pozwala on~na~zainstalowanie wielu implementacji i~wersji tego języka na~lokalnej maszynie oraz~proste zarządzanie wtyczkami Gem dla tych implementacji. Umożliwia proste przełączanie się pomiędzy wersjami języka.
+
+\subsubsection{IRB}
+
+IRB to~interaktywna konsola języka Ruby udostępniana wraz z~tym językiem. Jest ona podobna w~działaniu do~konsoli języka Python, a~zatem udostępnia szereg opcji pozwalających na~testowanie małych porcji kodu jezyka Ruby w~,,biegu''. Możliwe jest także skonfigurowanie zachowań konsoli IRB przy pomocy skryptów napisancych w~języku Ruby (np.~kolorowanie składni, formatowanie wyjścia konsoli, itp.).
+
+\subsubsection{rspec + cucumber}
+
+Patrz rozdział \ref{technologie.gemy}.
+
+\subsubsection{Sqliteman}
+
+Sqliteman\footnote{\url{http://sqliteman.com/}} to~narzędzie do~zarządzania bazami danych Sqlite3. Oferuje graficzny interfejs pozwalający na~szybkie przeglądanie/edycję zawartości bazy danych.
 
 \subsection{Wdrożenie}
 
 Do~pełnego przedstawienia cyklu pracy nad projektem wykonanym w~technologii Ruby~on~Rails potrzebne jest przedstawienie metod wdrożenia aplikacji webowej oraz~zaproponowanie sposobu jej konserwacji. W~tym celu mam zamiar przybliżyć jedne z~najprostszych znanych mi sposobów wdrożenia aplikacji Ruby~on~Rails.
 
-\begin{enumerate}
-  \item \texttt{heroku}\footnote{\url{http://www.heroku.com/}} -- serwis pozwalający na~tworzenie deploymentu projektów napisanych w języku Ruby ,,w~chmurze''.
-  \item \texttt{Nginx + thin}\footnote{Nginx: \url{http://wiki.nginx.org/NginxPl}, Thin: \url{http://code.macournoyer.com/thin/}} -- lokalne wdrażanie aplikacji przy użycu serwera HTTP \texttt{Nginx} oraz~lekkiego serwera \texttt{thin}.
-\end{enumerate}
+\subsubsection{Heroku}
+
+Heroku\footnote{\url{http://www.heroku.com/}} to~serwis pozwalający na~tworzenie deploymentu projektów napisanych w~języku Ruby ,,w~chmurze''.
+
+
+Heroku wykożystuje cloud-computing do~wdrażania alpikacji webowych opartych na~interfejsie Ruby~Rack (a więc także aplikacji Ruby~on~Rails, Sinatra, itp.). Pozwala to~na~odrzucenie zbędnego planowania oraz~konfiguracji/konserwacji środowisk uruchomieniowych. Zmniejsza to~koszta zatrudnienia administratorów, a~także koszta sprzętu czy niezbędnych usług (połączenie internetowe, certyfikaty, domeny, itp.)
+
+
+Heroku nie jest jedyną taką usługą dostępną dla programistów Ruby, jednakże tylko ono~pozwala na~założenie niewielkich aplikacji testowych. Wymagania dla systemu aukcyjnego, który pragnę zaprezentować, mogą w~przyszłości znacznie wzrosnąć, jednakże zamierzam jedynie zaprezentować proces wdrożenia (użycie narzędzia jakim jest Heroku).
+
+\subsubsection{Nginx + thin}
+
+Do~wdrożenia aplikacji na~lokalnym serwerze potrzebuję:
+
+
+Nginx\footnote{\url{http://wiki.nginx.org/NginxPl}} -- jest serwerem HTTP oraz~serwerem proxy IMAP/POP3 stworzonym przez Igora Sysoeva. Serwer ten wykorzystywany jest na~wielu Rosyjskich portalach internetowych poddawanych dużemu obciążeniu. Nginx wydawany jest na~licencji BSD. Według raportu netcraft z~grudnia 2006 serwer nginx wykorzystywany był na~114160 domenach.
+
+
+Thin\footnote{\url{http://code.macournoyer.com/thin/}} -- to~lekki serwer HTTP pozwalający na szybką pbsługę requestów HTTP. Obsługuje zwykle tylko jedną instancję aplikacji webowej, jednak w~połaczeniu z~Nginx (poprzez szybkie Unix'owe gniazda) pozwala na~uzyskanie wysokiej skalowalności oraz~prędkości, przy niewielkim wykożystaniu zasobów.

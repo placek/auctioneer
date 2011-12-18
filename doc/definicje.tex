@@ -2,34 +2,66 @@
 
 \subsection{Pojęcia związane z~inżynierią oprogramowania} \label{definicje.inz_op}
 
-%TODO
+\begin{definition}[Aplikacja szkieletowa] \label{definicje.inz_op.framework}
+W~programowaniu komputerowym aplikacja szkieletowa (framework) jest szkieletem do~budowy aplikacji. Definiuje on~strukturę aplikacji oraz~ogólny mechanizm jej działania, a~także dostarcza zestaw komponentów i~bibliotek ogólnego przeznaczenia do~wykonywania określonych zadań. Programista tworzy aplikację, rozbudowując i~dostosowując poszczególne komponenty do~wymagań realizowanego projektu, tworząc w~ten sposób gotową aplikację\cite{framework}.
 
-\subsubsection{Aplikacja szkieletowa} \label{definicje.inz_op.framework}
 
-%TODO
+Frameworki bywają niekiedy błędnie zaliczane do~bibliotek programistycznych. Typowe cechy, które każą wyróżniać je~jako samodzielną kategorię oprogramowania, to:
 
-\subsubsection{Interpretowany język programowania} \label{definicje.inz_op.jez_inter}
+\begin{enumerate}
+  \item Odwrócenie sterowania -- w~odróżnieniu od~aplikacji oraz~bibliotek, przepływ sterowania jest narzucany przez framework, a~nie przez użytkownika.
+  \item Domyślne zachowanie -- framework posiada domyślną konfigurację, która musi być użyteczna i~dawać sensowny wynik, zamiast być zbiorem pustych operacji do~nadpisania przez programistę.
+  \item Rozszerzalność -- poszczególne komponenty frameworka powinny być rozszerzalne przez programistę, jeśli ten chce rozbudować je~o~niezbędną mu~dodatkową funkcjonalność.
+  \item Zamknięta struktura wewnętrzna -- programista może rozbudowywać framework, ale nie poprzez modyfikację domyślnego kodu.
+\end{enumerate}
+\end{definition}
 
-%TODO
+\begin{definition}[Interpretowany język programowania] \label{definicje.inz_op.jez_inter}
+Języki interpretowane to~języki programowania, które zazwyczaj implementowane są~w~formie interpretera, a~nie kompilatora. Program w~języku interpretowanym nie jest kompilowany, lecz jest przechowywany w postaci kodu źródłowego i~dopiero podczas uruchomienia wczytywany, interpretowany i~wykonywany przez interpreter języka.
+\end{definition}
 
-\subsubsection{Paradygmat obiektowości} \label{definicje.inz_op.jez_obj}
+\begin{definition}[Paradygmat obiektowości] \label{definicje.inz_op.jez_obj}
+Programowanie obiektowe (ang.~object-oriented programming) -- paradygmat programowania, w~którym programy definiuje się za~pomocą obiektów -- elementów łączących stan (czyli dane, nazywane najczęściej polami) i~zachowanie (czyli procedury, tu:~metody). Obiektowy program komputerowy wyrażony jest jako zbiór takich obiektów, komunikujących się pomiędzy sobą w~celu wykonywania zadań.
 
-%TODO
 
-\subsubsection{Paradygmat funkcyjności} \label{definicje.inz_op.jez_fun}
+Podejście to~różni się od~tradycyjnego programowania proceduralnego, gdzie dane i~procedury nie są~ze~sobą bezpośrednio związane. Programowanie obiektowe ma ułatwić pisanie, konserwację i~wielokrotne użycie programów lub ich fragmentów.
 
-%TODO
 
-\subsubsection{Metaprogramowanie} \label{definicje.inz_op.metaprog}
+Największym atutem programowania, projektowania oraz~analizy obiektowej jest zgodność takiego podejścia z~rzeczywistością -- mózg ludzki jest w~naturalny sposób najlepiej przystosowany do~takiego podejścia przy przetwarzaniu informacji.\cite{lang}
+\end{definition}
 
-%TODO
+\begin{definition}[Paradygmat funkcyjności] \label{definicje.inz_op.jez_fun}
+Programowanie funkcyjne (lub programowanie funkcjonalne) to~filozofia i~metodyka programowania będąca odmianą programowania deklaratywnego, w~której funkcje należą do~wartości podstawowych, a~nacisk kładzie się na~wartościowanie (często rekurencyjnych) funkcji, a~nie na~wykonywanie poleceń.
 
-\subsubsection{Metodologia} \label{definicje.inz_op.metodologia}
 
-%TODO
+W czystym programowaniu funkcyjnym, raz zdefiniowana funkcja zwraca zawsze tę~samą wartość dla danych wartości argumentów, tak jak prawdziwe funkcje matematyczne.
+
+
+Inspiracją dla powstania programowania funkcyjnego był w~matematyce rachunek lambda.\cite{lang}
+\end{definition}
+
+\begin{definition}[Metaprogramowanie] \label{definicje.inz_op.metaprog}
+Metaprogramowanie to~technika umożliwiająca programom tworzenie lub modyfikację kodu innych programów (lub ich samych). Program będący w~stanie modyfikować lub generować kod innego programu nazywa się metaprogramem.
+
+
+Wykorzystanie zasad metaprogramowania pozwala na~przykład na~dynamiczną modyfikację programu podczas jego kompilacji.
+
+
+Metaprogramy pisze się w~metajęzykach. Jeśli język jest jednocześnie swoim metajęzykiem, to~taką cechę nazywamy refleksyjnością (ang. reflexivity).\cite{lang}
+\end{definition}
+
+\begin{definition}[Metodyka] \label{definicje.inz_op.metodyka}
+Metodyka to~ustandaryzowane dla wybranego obszaru podejście do~rozwiązywania problemów. Metodyka abstrahuje od~merytorycznego kontekstu danego obszaru, a~skupia się na~metodach realizacji zadań, szczególnie metodach zarządzania.
+
+
+W~odróżnieniu od~metodologii, która się skupia na~odpowiedzi na~pytanie; ,,Co należy robić?'' metodyka koncentruje się na~poszukiwaniu odpowiedzi na~pytanie: ,,Jak to~należy robić?''. Generalnie metodyka bardziej kieruje się ku~praktyce wykonawczej, a~metodologia ku~teorii zazwyczaj sprawnego działania.
+\end{definition}
 
 \subsection{Pozostałe pojęcia}
 
-\subsubsection{Aukcja} \label{definicje.inne.aukcja}
+\begin{definition}[Aukcja] \label{definicje.inne.aukcja}
+Aukcja -- zorganizowana forma sprzedaży, będąca formą przetargu prowadzonego na~żywo. Zazwyczaj aukcje przeprowadza się wtedy, gdy~istnieje wielu potencjalnych nabywców na~jeden towar.
 
-%TODO
+
+Aukcja internetowa -- rodzaj aukcji przeprowadzanej za~pośrednictwem Internetu.
+\end{definition}
