@@ -1,8 +1,22 @@
 .float-right= will_paginate(@auctions)
 .clear
 
-.auctions
-   = render partial: :auction, collection: @auctions
+#tabs
+  %ul
+    %li= link_to t('auctions.created'), '#created_auctions'
+    %li= link_to t('auctions.published'), '#published_auctions'
+    %li= link_to t('auctions.finished'), '#finished_auctions'
+
+  #created_auctions
+    .big_button= link_to t('auctions.new'), new_user_auction_path
+    .auctions
+      = render partial: :auction, collection: @auctions.created
+  #published_auctions
+    .auctions
+      = render partial: :auction, collection: @auctions.public
+  #finished_auctions
+    .auctions
+      = render partial: :auction, collection: @auctions.finished
 
 .clear
 .float-right= will_paginate(@auctions)

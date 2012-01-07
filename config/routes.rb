@@ -2,7 +2,11 @@ Auctioneer::Application.routes.draw do
 
   scope '/:locale', locale: /en|pl/ do
     namespace :user do
-      resources :auctions
+      resources :auctions do
+        put :publish
+        put :republish
+        put :close
+      end
     end
     resource :user, only: :show do
       get :dashboard

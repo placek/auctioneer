@@ -34,9 +34,24 @@ class User::AuctionsController < User::Base
     respond_with(@auction)
   end
 
+  def publish
+    @auction.publish
+    respond_with(@auction)
+  end
+
+  def republish
+    @auction.republish
+    respond_with(@auction)
+  end
+
+  def close
+    @auction.close
+    respond_with(@auction)
+  end
+
   protected
 
   def load_auction
-    @auction = current_user.auctions.find(params[:id])
+    @auction = current_user.auctions.find(params[:id] || params[:auction_id])
   end
 end

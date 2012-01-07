@@ -2,6 +2,7 @@ $ ->
   $('.button a').button()
   $('.big_button a').button()
   $('input[type="submit"]').button()
+  $('#tabs').tabs()
   $('textarea').tinymce({
      mode : 'textareas',
      theme : 'advanced',

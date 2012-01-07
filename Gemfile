@@ -14,6 +14,7 @@ gem 'wirble', :require => nil
 gem 'ruby-debug19', :require => nil
 gem 'rspec-rails', '>= 2.6.1', :group => [:development, :test]
 gem 'heroku'
+gem 'state_machine'
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"

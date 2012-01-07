@@ -15,6 +15,12 @@
     = short_description(auction.description)
 
   .auction_actions
+    - if auction.new?
+      .button= link_to t('auctions.publish'), user_auction_publish_path(auction), method: :put
+    - if auction.closed?
+      .button= link_to t('auctions.republish'), user_auction_republish_path(auction), method: :put
+    - if auction.public?
+      .button=link_to t('auctions.close'), user_auction_close_path(auction), method: :put
     .button= link_to t('edit'), edit_user_auction_path(auction)
     .button= link_to t('destroy'), user_auction_path(auction), method: :delete, confirm: t('sure')
     .button= link_to t('more'), user_auction_path(auction)
