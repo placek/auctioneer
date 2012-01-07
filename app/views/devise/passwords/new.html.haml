@@ -1,16 +1,17 @@
 %h2
   = t('devise.passwords.new.title')
 
-= form_for(resource, :as => resource_name, :url => user_password_path(locale: I18n.locale), :html => { :method => :post }) do |f|
-  = devise_error_messages!
+#devise_box
+  = form_for(resource, as: resource_name, url: user_password_path(locale: I18n.locale), html: { method: :post }) do |f|
+    = devise_error_messages!
 
-  %dl
-    %dt
-      = f.label t('devise.passwords.new.email')
-    %dd
-      = f.text_field :email
+    %dl
+      %dt
+        = f.label t('devise.passwords.new.email')
+      %dd
+        = f.text_field :email
 
-  %p
-    = f.submit t('devise.passwords.new.send')
+    %p
+      .button= f.submit t('devise.passwords.new.send')
 
-= render :partial => "devise/shared/links"
+= render partial: "devise/shared/links"

@@ -1,4 +1,4 @@
-= form_tag admin_users_path, :method => :get do
+= form_tag admin_users_path, method: :get do
   = label_tag :email, "Filter by email:"
   = text_field_tag :like, h(params[:email])
   = submit_tag "Filter"
@@ -20,7 +20,7 @@
     %th Confirmed at
     %th Last signed in
     %th Sign in IP
-    %th{ :colspan => 2 } Actions
+    %th{ colspan: 2 } Actions
   - @users.each do |user|
     %tr
       %td= user.email
@@ -33,6 +33,6 @@
         %td= link_to 'Sign in', admin_user_login_path(user)
       - else
         %td= link_to 'Confirm', admin_user_confirm_path(user)
-      %td= link_to 'Delete', admin_user_delete_path(user), :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Delete', admin_user_delete_path(user), confirm: 'Are you sure?', method: :delete
 
 = will_paginate(@users)

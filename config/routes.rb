@@ -1,10 +1,15 @@
 Auctioneer::Application.routes.draw do
 
   scope '/:locale', locale: /en|pl/ do
-    resources :auctions
+    namespace :user do
+      resources :auctions
+    end
+    resource :user, only: :show do
+      get :dashboard
+    end
+    resources :auctions, only: [:index, :show]
     devise_for :users
-    match 'dashboard' => 'users#index', as: 'users_dashboard'
-    match '/' => 'static_pages#home', as: 'home'
+    get '/' => 'static_pages#home', as: 'home'
   end
 
   namespace :admin do

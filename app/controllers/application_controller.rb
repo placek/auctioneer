@@ -9,12 +9,4 @@ class ApplicationController < ActionController::Base
   def self.default_url_options(options={})
     options.merge({ locale: I18n.locale })
   end
-
-  def after_sign_in_path_for(resource)
-    if resource.class == Admin
-      admin_root_path
-    else
-      users_dashboard_path
-    end
-  end
 end

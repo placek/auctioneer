@@ -14,10 +14,14 @@ module NavigationHelpers
     when /^the admins panel$/
       '/admin'
     when /^the users dashboard$/
-      '/en/dashboard'
+      '/en/user/dashboard'
     when /^the auctions page$/
       '/en/auctions'
-
+    when /^the auction "([^\"]+)" edit page$/
+      auction = Auction.where(title: $1).last
+      "/en/user/auctions/#{auction.id}/edit"
+    when /^the user sign in page$/
+      '/en/users/sign_in'
     else
       begin
         page_name =~ /^the (.*) page$/

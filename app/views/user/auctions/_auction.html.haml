@@ -15,5 +15,7 @@
     = short_description(auction.description)
 
   .auction_actions
-    .button= link_to t('more'), auction_path(auction)
+    .button= link_to t('edit'), edit_user_auction_path(auction)
+    .button= link_to t('destroy'), user_auction_path(auction), method: :delete, confirm: t('sure')
+    .button= link_to t('more'), user_auction_path(auction)
   .clear

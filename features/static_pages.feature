@@ -8,7 +8,7 @@ Feature: Static pages
 
   Scenario: Moving between language scopes
     When I go to the polish landing page
-    Then I should see "Witaj na Auctioneer (beta)! Nie krępuj się i testuj."
+    Then I should see "Zaloguj"
     When I go to the english landing page
-    Then I should see "Welcome to Auctioneer (beta)! Feel free to test it."
+    Then I should see "Sign in"
 

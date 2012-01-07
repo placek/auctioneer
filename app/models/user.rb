@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, case_sensitive: false
   has_many :auctions
 
-  scope :email_like, lambda { |email| where('users.email like ?', email) }
+  scope :email_like, ->(email) { where('users.email like ?', email) }
 end

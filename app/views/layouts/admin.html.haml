@@ -3,7 +3,7 @@
 %html
   %head
     %title Auctioneer - admins panel
-    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'admin'
     = javascript_include_tag 'application'
     = csrf_meta_tag
   %body
@@ -11,6 +11,6 @@
       %h1 Admins panel
     #sidebar
       - if admin_signed_in?
-        = render :partial => 'admin/admins/side_bar'
+        = render partial: 'admin/admins/side_bar'
     #panel
       = yield

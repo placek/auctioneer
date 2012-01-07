@@ -2,39 +2,36 @@
   = t('devise.registrations.edit.title')
   = resource.email
 
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-  = devise_error_messages!
+#devise_box
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+    = devise_error_messages!
 
-  %dl
-    %dt
-      = f.label t('devise.registrations.edit.email')
-    %dd
-      = f.text_field :email
+    %dl
+      %dt
+        = f.label t('devise.registrations.edit.email')
+      %dd
+        = f.text_field :email
 
-    %dt
-      = f.label t('devise.registrations.edit.password')
-      .grey
-        = t('devise.registrations.edit.password_description')
-    %dd
-      = f.password_field :password
+      %dt
+        = f.label t('devise.registrations.edit.password')
+        .grey
+          = t('devise.registrations.edit.password_description')
+      %dd
+        = f.password_field :password
 
-    %dt
-      = f.label t('devise.registrations.edit.password_confirmation')
-    %dd
-      = f.password_field :password_confirmation
+      %dt
+        = f.label t('devise.registrations.edit.password_confirmation')
+      %dd
+        = f.password_field :password_confirmation
 
-    %dt
-      = f.label t('devise.registrations.edit.current_password')
-      .grey
-        = t('devise.registrations.edit.current_password_description')
-    %dd
-      = f.password_field :current_password
+      %dt
+        = f.label t('devise.registrations.edit.current_password')
+        .grey
+          = t('devise.registrations.edit.current_password_description')
+      %dd
+        = f.password_field :current_password
 
-  %p
-    = f.submit t('devise.registrations.edit.update')
-
-%ul
-  %li
-    = link_to t('devise.registrations.edit.cancel'), registration_path(resource_name), :confirm => t('devise.registrations.edit.cancel_confirmation'), :method => :delete
-  %li
-    = link_to t('back'), :back
+    %p
+      .button= f.submit t('devise.registrations.edit.update')
+    %p
+      .button= link_to t('devise.registrations.edit.cancel'), registration_path(resource_name), :confirm => t('devise.registrations.edit.cancel_confirmation'), :method => :delete

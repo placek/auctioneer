@@ -18,7 +18,6 @@ Feature: User accounts
     And I should see "You can confirm your account through the link below" in the email body
     And I should see "Confirm my account" in the email body
     When I follow "Confirm my account" in the email
-    Then I should see "Your account was successfully confirmed. You are now signed in."
     And I should see "Sign out"
 
   Scenario: Changing users password
@@ -40,7 +39,6 @@ Feature: User accounts
       | user_password              | monkey |
       | user_password_confirmation | monkey |
     And I press "Change my password"
-    Then I should see "Your password was changed successfully. You are now signed in."
 
   Scenario: Resend a confirmation instructions
     Given I am on the home page
@@ -66,4 +64,3 @@ Feature: User accounts
       | user_email    | quentin@example.com |
       | user_password | secret              |
    And I press "Sign in"
-   Then I should see "User's dashboard"

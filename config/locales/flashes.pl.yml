@@ -1,0 +1,13 @@
+pl:
+  flash:
+    user:
+      auctions:
+        create:
+          notice: "Aukcja została pomyślnie utworzona"
+          alert: "Aukcja nie mogła zostać utworzona!"
+        destroy:
+          notice: "Aukcja została pomyślnie usunięta"
+          alert: "Aukcja nie mogła być usunięta!"
+        update:
+          notice: "Aukcja została pomyślnie zmodyfikowana"
+          alert: "Aukcja nie mogła zostać zmodyfikowana!"

@@ -90,18 +90,19 @@ a
 .clear
   clear: both
 
-.button
-  font-size: x-small
+@mixin button
   text-indent: 0
   margin-bottom: 5px
-  margin-left: 10px
   display: inline-block
+
+.button
+  font-size: x-small
+  margin-left: 10px
+  @include button
 
 .big_button
   font-size: small
-  text-indent: 0
-  margin-bottom: 5px
-  display: inline-block
+  @include button
 
 @mixin auction-layout
   display: block
@@ -200,6 +201,10 @@ a
     display: inline
     margin: 10px
     color: #d33
+
+    a
+      text-decoration: none
+
   ul
     display: inline
     li
@@ -207,12 +212,16 @@ a
       float: right
       margin: 0 5px
 
+#footer
+  font-size: small
+  margin-bottom: 0
+  text-align: center
+
 #main
   margin: 30px 30px 30px 30px
 
 #auction_info
   float: left
-
 
   p
     font-size: small

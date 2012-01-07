@@ -11,10 +11,10 @@ Feature: Admin panel
       | admin_password | secret            |
     And press "Sign in"
     And I follow "Leave panel"
-    Then I should see "Welcome to Auctioneer"
+    Then I should see "Auctioneer system"
     When I go to the admins panel
     And I follow "Sign out"
-    Then I should see "Welcome to Auctioneer"
+    Then I should see "Auctioneer system"
 
   Scenario: Managing admins
     Given I am on the admins panel

@@ -10,20 +10,23 @@
 
     #navigation
       %h1= link_to "Auctioneer", auctions_path
-      = render :partial => 'shared/session_bar'
+      = render partial: 'shared/session_bar'
 
     #main
-      - if flash[:warning]
-        #warning
-          = flash[:warning]
-      - if flash[:notice]
-        #notice
-          = flash[:notice]
-      - if flash[:error]
-        #error
-          = flash[:error]
+      -# if flash[:warning]
+      #warning
+        = flash[:warning]
+      -# if flash[:notice]
+      #notice
+        = flash[:notice]
+      -# if flash[:error]
+      #error
+        = flash[:error]
+      -# if flash[:alert]
+      #alert
+        = flash[:alert]
       = yield
 
     #footer
-      %center
-        %p &nbsp;
+      Auctioneer system · Copyright
+      = link_to 'Paweł Placzyński', 'mailto:placzynski.pawel@gmail.com'
