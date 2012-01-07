@@ -13,7 +13,7 @@ en:
       sign_in: 'Sign in'
       sign_out: 'Sign out'
       sign_up: 'Sign up'
-      edit: 'Edit profile'
+      edit: 'Profile'
       forgotten_password: 'Forgot your password?'
       resend_confirm_instructions: "Didn't receive confirmation instructions?"
       hello: 'Hi, '

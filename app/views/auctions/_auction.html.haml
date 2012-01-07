@@ -1,0 +1,19 @@
+.auction_big
+  %h4
+    = auction.title
+  %ul
+    %li
+      = t('auctions.actual_price')
+      = auction.actual_price || auction.minimum_price
+      zł
+    %li
+      = t('auctions.minimum_price')
+      = auction.minimum_price
+      zł
+  .clear
+  %p
+    = short_description(auction.description)
+
+  .auction_actions
+    .button= link_to t('more'), auction_path(auction)
+  .clear

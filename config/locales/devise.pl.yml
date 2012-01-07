@@ -13,7 +13,7 @@ pl:
       sign_in: 'Zaloguj'
       sign_out: 'Wyloguj'
       sign_up: 'Zarejestruj'
-      edit: 'Edytuj profil'
+      edit: 'Profil'
       forgotten_password: 'Zapomniałeś hasła?'
       resend_confirm_instructions: 'Nie otrzymałeś potwierdzenia rejestracji?'
       hello: 'Witaj, '

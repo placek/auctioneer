@@ -7,10 +7,11 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'haml'
 gem 'haml-rails'
+gem 'formtastic'
 gem 'thin'
 gem 'will_paginate'
 gem 'wirble', :require => nil
-gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'ruby-debug19', :require => nil
 gem 'rspec-rails', '>= 2.6.1', :group => [:development, :test]
 gem 'heroku'
 

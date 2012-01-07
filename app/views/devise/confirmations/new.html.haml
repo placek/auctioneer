@@ -1,16 +1,17 @@
 %h2
   = t('devise.confirmations.new.title')
 
-= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
-  = devise_error_messages!
+#devise_box
+  = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+    = devise_error_messages!
 
-  %dl
-    %dt
-      = f.label t('devise.confirmations.new.email')
-    %dd
-      = f.text_field :email
+    %dl
+      %dt
+        = f.label t('devise.confirmations.new.email')
+      %dd
+        = f.text_field :email
 
-  %p
-    = f.submit t('devise.confirmations.new.resend')
+    %p
+      .button= f.submit t('devise.confirmations.new.resend')
 
-= render :partial => "devise/shared/links"
+= render partial: "devise/shared/links"

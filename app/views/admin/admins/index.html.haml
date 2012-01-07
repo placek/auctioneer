@@ -1,4 +1,4 @@
-= form_tag admin_admins_path, :method => :get do
+= form_tag admin_admins_path, method: :get do
   = label_tag :email, "Filter by email:"
   = text_field_tag :like, h(params[:email])
   = submit_tag "Filter"

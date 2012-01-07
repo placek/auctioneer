@@ -4,5 +4,5 @@ class Admin < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :email, case_sensitive: false
 
-  scope :email_like, lambda { |email| where('admins.email like ?', email) }
+  scope :email_like, ->(email) { where('admins.email like ?', email) }
 end

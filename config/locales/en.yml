@@ -1,7 +1,29 @@
 en:
-  back: "Back"
+  back: "back"
+  edit: "edit"
+  show: "show"
+  destroy: "delete"
+  sure: "Are you sure?"
+  more: "more »"
+
+  will_paginate:
+    previous_label: "« previous"
+    next_label: "next »"
+
   static_pages:
     welcome: 'Welcome to Auctioneer (beta)! Feel free to test it.'
+
   users:
+    auctions: "My auctions"
+    dashboard: "Dashboard"
     index:
       title: "User's dashboard"
+
+  auctions:
+    title: "Name"
+    actual_price: "Actual price"
+    minimal_price: "Minimal price"
+    description: "Description"
+    user: "Auction owner"
+    created: "An auction has been successfuly created"
+    updated: "An auction has been successfuly updated"

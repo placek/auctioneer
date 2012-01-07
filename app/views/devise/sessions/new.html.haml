@@ -1,25 +1,26 @@
 %h2
   = t('devise.sessions.new.title')
 
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  
-  %dl
-    %dt
-      = f.label t('devise.sessions.new.email')
-    %dd 
-      = f.text_field :email
+#devise_box
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
 
-    %dt
-      = f.label t('devise.sessions.new.password')
-    %dd
-      = f.password_field :password
+    %dl
+      %dt
+        = f.label t('devise.sessions.new.email')
+      %dd
+        = f.text_field :email
 
-  - if devise_mapping.rememberable?
+      %dt
+        = f.label t('devise.sessions.new.password')
+      %dd
+        = f.password_field :password
+
+    - if devise_mapping.rememberable?
+      .remember_me
+        = f.check_box :remember_me
+        = f.label t('devise.sessions.new.remember_me')
+
     %p
-      = f.check_box :remember_me
-      = f.label t('devise.sessions.new.remember_me')
-
-  %p
-    = f.submit t('devise.sessions.new.sign_in')
+      .button= f.submit t('devise.sessions.new.sign_in')
 
 = render :partial => "devise/shared/links"

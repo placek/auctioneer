@@ -1,7 +1,11 @@
 class StaticPagesController < ApplicationController
 
   def home
-    redirect_to(users_dashboard_path) if user_signed_in?
+    if user_signed_in?
+      redirect_to(dashboard_user_path)
+    else
+      redirect_to(auctions_path)
+    end
   end
 
   def landing
