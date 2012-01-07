@@ -8,6 +8,7 @@ class Auction < ActiveRecord::Base
   scope :closed, where(state: :closed)
   scope :won, where(state: :won)
   scope :finished, where('state = "closed" OR state = "won"')
+  scope :search, ->(query) { where('(title LIKE ?) OR (description LIKE ?)', "%#{query}%", "%#{query}%") }
 
   state_machine initial: :new do
     after_transition any => :public do |auction, transition|
@@ -31,5 +32,4 @@ class Auction < ActiveRecord::Base
       transition closed: :public
     end
   end
-
 end

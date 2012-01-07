@@ -5,6 +5,7 @@ en:
   destroy: "delete"
   sure: "Are you sure?"
   more: "more »"
+  search: "Search..."
 
   will_paginate:
     previous_label: "« previous"
