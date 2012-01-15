@@ -4,7 +4,6 @@ main: main.pdf
 main.pdf:
 	pdflatex main.tex
 	pdflatex main.tex
-	evince praca_inzynierska.pdf
 
 clean:
 	rm -f *.aux
