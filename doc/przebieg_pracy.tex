@@ -1,0 +1,232 @@
+\section{Przebieg pracy}
+
+W~tym podrozdziale opiszę fazy tworzenia projektu i~jego rozwoju.
+
+\subsection{Przygotowanie środowiska pracy}
+
+Pierwszym krokiem do~stworzenia systemu aukcyjnego w~technologii Ruby~on~Rails jest przygotowanie środowiska, w~którym projekt bedzie tworzony. Pominięto tutaj proces instalacji systemu operacyjnego.
+
+\subsubsection{Instalacja narzędzi}
+
+Większość narzędzi wymienionych w~rozdziale \ref{narzedzia} Narzędzia można zainstalować wpisując w~konsoli następujące polecenie:
+
+
+\texttt{sudo apt-get install zsh screen ack-grep vim ruby git git-core tig ticgit ticgitweb sqlite3 sqlite3-dev sqliteman curl}
+
+
+(Polecenie to~zadziała na~Ubuntu~11.10 oraz na~Debianie~Squeeze. Na~innych dystrybucjach zamiast \texttt{apt-get} należy użyć innego manadżera pakietów dostępnego dla danej dystrybucji. Oczywiście nazwy pakietów także mogą się różnić)
+
+\subsubsection{Zarządzanie wersją Ruby -- RVM}
+
+W~celu zainstalowania \textit{RVM} należy wpisać w~konsoli:
+
+
+\texttt{bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)}
+
+
+Aby zainstalować Ruby w~wersji 1.9.3 należy wpisać:
+
+
+\texttt{rvm install 1.9.3}
+
+
+Po~konfiguracji i~kompilacji zadanej wersji Ruby należy tylko przełączyć się na~nią:
+
+
+\texttt{rvm --default use 1.9.3}
+
+
+Polecenie \texttt{ruby -v} powinno wypisać \texttt{ruby 1.ruby9.ruby93p0 (2011-10-30 revision 33570) [x86\_64-linux]}.
+
+\subsubsection{Instalacja Ruby~on~Rails oraz niezbędnych wtyczek}
+
+Ruby~on~Rails instalujemy wpisując:
+
+
+\texttt{gem install rails}
+
+
+W~ten sposób można już utworzyć pierwszy, podstawowy projekt Ruby~on~Rails:
+
+
+\texttt{rails new auctioneer}
+
+
+Polecenie to~utworzy katalog auctioneer zawierający podstawowe elementy każdego projektu Ruby~on~Rails.
+
+\lstset{language=bash, caption=Zawartość katalogu \textit{auctioneer}, basicstyle=\ttfamily\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}} \label{code.railsdir}
+\begin{lstlisting}
+app
+app/models
+app/views
+app/views/layouts
+app/controllers
+app/helpers
+app/assets
+app/assets/stylesheets
+app/assets/javascripts
+app/assets/images
+app/mailers
+script
+vendor
+vendor/plugins
+vendor/assets
+vendor/assets/stylesheets
+db
+config
+config/environments
+config/locales
+config/initializers
+log
+public
+doc
+test
+test/integration
+test/fixtures
+test/functional
+test/unit
+test/performance
+tmp
+tmp/cache
+tmp/cache/assets
+lib
+lib/tasks
+lib/assets
+\end{lstlisting}
+
+Aby zainstalować konieczne do~dalszego działania wtyczki należy wyedytować plik \texttt{Gemfile} dopisując linijki z~nazwami oraz numerami wersji wtyczek.
+
+\lstset{language=ruby, caption=Plik \texttt{Gemfile} projektu \textit{auctioneer}., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}} \label{code.railsdir}
+\begin{lstlisting}
+source 'http://rubygems.org'
+
+gem 'rails', '>=3.1.0'
+gem 'sqlite3'
+
+gem 'jquery-rails'
+gem 'devise'
+gem 'haml'
+gem 'haml-rails'
+gem 'formtastic'
+gem 'thin'
+gem 'will_paginate'
+gem 'wirble', require: nil
+gem 'ruby-debug19', require: nil
+gem 'rspec-rails', '>= 2.6.1', group: [:development, :test]
+gem 'heroku'
+gem 'state_machine'
+
+group :assets do
+  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier', '>= 1.0.3'
+  gem 'therubyracer'
+end
+
+group :test do
+  gem 'factory_girl_rails', '>= 1.1.0'
+  gem 'cucumber-rails', '>= 1.0.2'
+  gem 'capybara', '>= 1.0.1'
+  gem 'database_cleaner', '>= 0.6.7'
+  gem 'launchy', '>= 2.0.5'
+  gem 'ruby-debug19'
+  gem 'email_spec'
+end
+\end{lstlisting}
+
+Po~edycji pliku \texttt{Gemfile} należy wywołać polecenie \texttt{bundle install}. Wszystkie zależności związane z~wymaganymi wtyczkami zostaną zainstalowane, a~każda zmiana w~pliku \texttt{Gemfile} wymaga ponownego uruchomienia komendy \texttt{bundle install}.
+
+\subsubsection{Kontrola wersji Git}
+
+W~katalogu projektu stworzonego w~poprzednim punkcie należy zainicjować system kontrolii wersji wpisując polecenie:
+
+
+\texttt{git init}
+
+
+W~katalogu powstanie podkatalog \texttt{.git} zawierajacy wszystkie niezbędne informacje o historii tworzonego projektu.
+
+
+W~projekcie mogą znajdować się pliki, dla~których nie chcemy przechowywać historii. Mogą to~być na~przykład pliki tymczasowe, logi, pliki backup, itp. Aby uniknąć dodawania ich do~historii rozwoju projektu należy utworzyć plik \texttt{.gitignore} i~dopisać tam niechciane pliki.
+
+
+Aby zapisać bieżący stan projektu w~historii należy zaznaczyć zmiany przy pomocy polecenia \texttt{git add .} oraz wykonać commit przy pomocy \texttt{git commit}. Otworzy się domyślny edytor tekstu, w którym należy podać komentarz dotyczący zmian.
+
+\lstset{language=bash, caption=Plik \texttt{.gitignore} projektu \textit{auctioneer}., basicstyle=\ttfamily\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}} \label{code.railsdir}
+\begin{lstlisting}
+.sass-cache/
+vendor/ruby
+*~
+*.swp
+*.swo
+tags
+log/*
+tmp/*
+lib/mysql.rb
+config/*.yml
+[a-zA-Z0-9\.-_]*~
+misc
+capybara*
+coverage
+config/*.sphinx.conf
+config/environments/dev_local.rb
+db/sphinx/*
+public/system/*
+public/sitemaps/*
+backup
+nbproject/*
+features_report.html
+public/services/
+public/stylesheets/all.css
+public/javascripts/all.js
+rerun.txt
+mkmf.log
+.bundle/
+nohup.out
+*.sqlite3
+.rvmrc
+doc/praca_inzynierska.pdf
+\end{lstlisting}
+
+\subsubsection{Dalsza konfiguracja}
+
+W~poprzednich krokach została przedstawiona instalacja środowiska programistycznego dla projektu napisanego w~technologii Ruby~on~Rails. Środowisko takie jest już wystarczające i można zacząć właściwą pracę nad projektem, jednakże każde z~wyżej wymienionych narzędzi można skonfigurować według własnego uznania edytując pliki konfiguracyjne.
+
+
+Do~tworzenia projektu \textit{auctioneer} użyto konfiguracji dostępnej w~repozytorium GitHub: \url{https://github.com/placek/dotfiles}.
+
+
+Aby zatwierdzić taką instalację należy wykonać następujące polecenie:
+
+
+\texttt{git clone git://github.com/placek/dotfiles.git; cp dotfiles/* ~}
+
+\subsection{Założenia projektu}
+
+Zanim programista przystępuje do~pracy należy wyznaczyć szczegółowo zadania i~założenia. Wszystkie cele powinny być jasno przedstawione i~przemyślane.
+
+\subsubsection{Założenia dotyczące projektu}
+
+System aukcyjny powinien spełniać pewne podstawowe funkcjonalności, a~zatem powinien zapewnić możliwość:
+
+\begin{itemize}
+  \item rejestracji oraz dostępu do~konta osobom chcącym wystawiać aukcje,
+  \item wystawienia aukcji oraz podania ceny minimalnej,
+  \item przeglądania aukcji wraz z~ważnymi dla potencjalnych kpujących informacjami,
+  \item wyszukiwania aukcji według opisu oraz podawania wyników wyszukiwania w~kolejności jaką sobie użytnownik wybierze,
+  \item podbicia aukcji oraz wygrania jej na~ogólnie przyjętych zasadach.
+\end{itemize}
+
+System powinien zadbać także o~bezpieczeństwo danych użytkowników systemu oraz udostępnić możliwość administrowania danymi przez osoby uprawnione (administratorzy).
+
+\subsubsection{Diagramy UML wyjaśniające strukturę i~zależności}
+
+%TODO
+
+\subsubsection{Scenariusze}
+
+%TODO
+
+\subsubsection{Zadania i~ich realizacja}
+
+%TODO
