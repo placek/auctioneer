@@ -15,4 +15,10 @@ module ApplicationHelper
     end
   end
 
+  def sortable(column)
+    direction = column == params[:sort] && params[:direction] == "asc" ? "desc" : "asc"
+    css_class = column == params[:sort] ? "sortable current_#{direction}" : nil
+    link_to t("auctions.#{column}"), params.merge(sort: column, direction: direction, page: nil), class: css_class
+  end
+
 end

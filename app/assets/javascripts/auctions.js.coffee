@@ -12,4 +12,8 @@ $ ->
      theme_advanced_buttons3 : '',
      theme_advanced_buttons4 : ''
   })
+  $('.sortable, .pagination a').live('click', ->
+    $.getScript(this.href)
+    return false
+  )
   return true

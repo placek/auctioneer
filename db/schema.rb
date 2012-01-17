@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120107152231) do
+ActiveRecord::Schema.define(:version => 20120117140527) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(:version => 20120107152231) do
 
   create_table "auctions", :force => true do |t|
     t.string   "title"
-    t.string   "actual_price"
-    t.string   "minimum_price"
+    t.float    "actual_price",  :limit => 255
+    t.float    "minimum_price", :limit => 255
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"

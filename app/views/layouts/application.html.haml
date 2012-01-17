@@ -13,7 +13,9 @@
       = render partial: 'shared/session_bar'
 
     #search_field
-      = form_tag auctions_search_path, method: :get do
+      = form_tag auctions_path, method: :get do
+        = hidden_field_tag :direction, params[:direction]
+        = hidden_field_tag :sort, params[:sort]
         = search_field_tag 'q', nil, autocomplete: :off, id: 'searchbar'
 
     #main

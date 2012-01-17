@@ -5,9 +5,9 @@ require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "sel
 
 Given /^an auction "([^"]*)" with description "([^"]*)"(?:| set by "([^"]*)")$/ do |title, description, name|
   if name.nil?
-    Factory(:auction, title: title, description: description)
+    Factory(:auction, title: title, description: description, state: 'public')
   else
     user = User.where(email: "#{name}@example.com").first || Factory(:confirmed_user, email: "#{name}@example.com")
-    Factory(:auction, title: title, description: description, user: user)
+    Factory(:auction, title: title, description: description, user: user, state: 'public')
   end
 end

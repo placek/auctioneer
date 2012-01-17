@@ -6,6 +6,7 @@ en:
   sure: "Are you sure?"
   more: "more »"
   search: "Search..."
+  search_results_html: "Search results for: <b>%{query}</b>"
 
   will_paginate:
     previous_label: "« previous"

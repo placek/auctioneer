@@ -12,7 +12,6 @@ Auctioneer::Application.routes.draw do
       get :dashboard
     end
     resources :auctions, only: [:index, :show]
-    get '/search' => 'auctions#search', as: 'auctions_search'
     devise_for :users
     get '/' => 'static_pages#home', as: 'home'
   end

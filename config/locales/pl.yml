@@ -6,6 +6,7 @@ pl:
   sure: "Czy na pewno?"
   more: "więcej »"
   search: "Szukaj..."
+  search_results_html: "Wyniki wyszukiwania dla: <b>%{query}</b>"
 
   will_paginate:
     previous_label: "« wstecz"

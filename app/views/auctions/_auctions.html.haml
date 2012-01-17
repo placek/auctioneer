@@ -1,0 +1,12 @@
+= sortable('title')
+= sortable('minimum_price')
+= sortable('actual_price')
+.float-right
+  = will_paginate(@auctions)
+.clear
+
+.auctions
+  = render partial: :auction, collection: @auctions
+
+.clear
+.float-right= will_paginate(@auctions)
