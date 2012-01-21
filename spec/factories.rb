@@ -10,10 +10,18 @@ FactoryGirl.define do
     "testname#{n}@example.com"
   end
 
-  factory :auction do |n|
-    title { Factory.generate :name }
-    description { Factory.generate :description }
+  sequence :description do |n|
+    "#{n} lorem ipsum dolor sit amed"
+  end
+
+  factory :auction do
+    title { FactoryGirl.generate :name }
+    description { FactoryGirl.generate :description }
     minimum_price 1500
+
+    factory :public_auction do
+      state 'public'
+    end
   end
 
   factory :user do

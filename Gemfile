@@ -15,6 +15,7 @@ gem 'ruby-debug19', require: nil
 gem 'rspec-rails', '>= 2.6.1', group: [:development, :test]
 gem 'heroku'
 gem 'state_machine'
+gem 'whenever', require: false
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
@@ -31,4 +32,5 @@ group :test do
   gem 'launchy', '>= 2.0.5'
   gem 'ruby-debug19'
   gem 'email_spec'
+  gem 'timecop'
 end

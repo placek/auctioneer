@@ -1,5 +1,5 @@
 = semantic_form_for [:user, @auction] do |form|
   = form.input :title
-  = form.input :minimum_price
+  = form.input :minimum_price, as: :string
   = form.input :description, as: :text
   = form.commit_button

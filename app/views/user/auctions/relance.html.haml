@@ -1,0 +1,8 @@
+#relance_box
+  %h3= t('auctions.relancer')
+  %p
+    = t('auctions.actual_price')
+    \:
+    = @auction.actual_price
+    zł
+  = render 'relance_form'

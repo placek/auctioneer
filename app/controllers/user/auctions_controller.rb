@@ -1,6 +1,7 @@
 #encoding: utf-8
 class User::AuctionsController < User::Base
-  before_filter :load_auction, except: [:new, :create, :index]
+  before_filter :load_auction, except: [:new, :create, :index, :relance, :do_relance]
+  before_filter :load_lanced_auction, only: [:relance, :do_relance]
 
   def index
     @auctions = current_user.auctions.paginate(page: params[:page])
@@ -49,9 +50,36 @@ class User::AuctionsController < User::Base
     respond_with(@auction)
   end
 
+  def relance
+    unless current_user == @auction.user
+      respond_with(@auction)
+    else
+      redirect_to_auction
+    end
+  end
+
+  def do_relance
+    if params[:auction][:actual_price].to_f > @auction.actual_price
+      params[:auction][:winner_id] = current_user.id
+      @auction.update_attributes(params[:auction])
+      redirect_to_auction
+    else
+      redirect_to user_auction_relance_path
+    end
+  end
+
   protected
 
   def load_auction
     @auction = current_user.auctions.find(params[:id] || params[:auction_id])
   end
+
+  def load_lanced_auction
+    @auction = Auction.public.find(params[:auction_id])
+  end
+
+  def redirect_to_auction
+    redirect_to auction_path(@auction)
+  end
+
 end

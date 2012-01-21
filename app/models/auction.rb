@@ -1,5 +1,8 @@
 class Auction < ActiveRecord::Base
+  EXPIRATION_AFTER = 7.days
+
   belongs_to :user
+  belongs_to :winner, class_name: 'User'
   validates :title, presence: true
   validates :minimum_price, presence: true
 
@@ -9,12 +12,28 @@ class Auction < ActiveRecord::Base
   scope :won, where(state: :won)
   scope :finished, where('state = "closed" OR state = "won"')
 
+  def self.about_to_finish
+    time = Time.now
+    now = Time.new(time.year, time.month, time.day, time.hour, 0)
+    where(state: :public).
+    where('created_at < ?', now - EXPIRATION_AFTER + 1.hour).
+    where('created_at >= ?', now - EXPIRATION_AFTER)
+  end
+
   # method used in search engine
   def self.search(query)
     if query
       where('(title LIKE ?) OR (description LIKE ?)', "%#{query}%", "%#{query}%")
     else
       scoped
+    end
+  end
+
+  # method that closes every expired auction
+  def self.close_auctions
+    self.about_to_finish.each do |auction|
+      auction.close if auction.winner.nil?
+      auction.win if auction.winner.present?
     end
   end
 
@@ -33,11 +52,12 @@ class Auction < ActiveRecord::Base
     end
 
     event :win do
-      transition public: :won, if: ->(auction) { auction.actual_price != auction.minimum_price }
+      transition public: :won, if: ->(auction) { auction.actual_price != auction.minimum_price && auction.winner.present? }
     end
 
     event :republish do
       transition closed: :public
     end
   end
+
 end

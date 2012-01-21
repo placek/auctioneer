@@ -10,7 +10,7 @@
     %dd= @auction.user.email
 
   .auction_actions
-    .big_button= link_to t('auctions.relancer'), "#"
+    .big_button= link_to t('auctions.relancer'), user_auction_relance_path(@auction)
     %p
       = t('auctions.actual_price')
       \:

@@ -6,6 +6,8 @@ Auctioneer::Application.routes.draw do
         put :publish
         put :republish
         put :close
+        get :relance
+        put :do_relance
       end
     end
     resource :user, only: :show do
@@ -31,6 +33,6 @@ Auctioneer::Application.routes.draw do
 
   devise_for :admins
 
-  root :to => 'static_pages#landing'
+  root to: 'static_pages#landing'
 
 end

@@ -1,0 +1,3 @@
+= semantic_form_for [:user, @auction], url: user_auction_do_relance_path(@auction) do |form|
+  = form.input :actual_price, as: :string, label: false
+  = form.commit_button
