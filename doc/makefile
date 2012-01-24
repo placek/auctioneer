@@ -1,5 +1,5 @@
 main: main.pdf
-	mv main.pdf praca_inzynierska.pdf
+	mv main.pdf report.pdf
 
 main.pdf:
 	pdflatex main.tex
