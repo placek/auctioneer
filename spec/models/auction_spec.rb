@@ -8,12 +8,12 @@ describe Auction do
       it { should_not be_empty }
     end
     describe 'about_to_finish' do
-      before { Timecop.freeze(7.days.ago - 5.minutes) { Factory(:public_auction) } }
+      before { Timecop.freeze(7.days.ago - 1.hour) { Factory(:public_auction) } }
       subject { Auction.about_to_finish }
       it { should be_empty }
     end
     describe 'about_to_finish' do
-      before { Timecop.freeze(7.days.ago + 65.minutes) { Factory(:public_auction) } }
+      before { Timecop.freeze(7.days.ago + 2.hours) { Factory(:public_auction) } }
       subject { Auction.about_to_finish }
       it { should be_empty }
     end
