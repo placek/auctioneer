@@ -277,4 +277,26 @@ Scenario: Registering a user account
 
 \subsection{Zadania i~ich realizacja}
 
-%TODO
+Zadania, które należało wykonać aby zaimplementować system \textit{auctioner}:
+
+\begin{enumerate}
+  \item inicjacja środowiska -- zainstalowanie niezbędnych narzędzi, konfiguracja środowiska oraz stworzenie nowego projektu Ruby~on~Rails;
+  \item konfiguracja projektu Ruby~on~Rails -- podpięcie wtyczek (gem), ustawienia konfiguracyjne dla projektu, utworzenie repozytorium \textit{Git} projektu, wykonanie czynności mających na~celu przygotowanie projektu dla realizacji jego architektury i~funkcjonalności;
+  \item przygotowanie aplikacji na~możliwość obsługi wielu wersji językowych;
+  \item utworzenie modeli użytkowników i~administratorów -- utworzenie schematu tabeli w~bazie danych, implementacja klas opakowujących, utworzenie prostych kontrolerów zarządzających modelami;
+  \item dodanie funkcjonalności rejestracji/logowania -- podpięcie systemu autentykacji do istniejących modeli użytkownika i~administratora, utworzenie widoków dla funkcjonalności rejestracji, logowania, przypomnienia hasła, aktywacji konta oraz przygotowanie wersji językowych dla funkcjonalności;
+  \item utworzenie modelu dla aukcji -- przygotowanie schematu dla bazy danych, utworzenie zależności pomiędzy modelami aukcji i użytkownika, utworzenie kontrolerów zarządzających aukcjami, utworzenie widoków dla aukcji, utworzenie ścieżek wywołań;
+  \item dodanie możliwości wyszukiwania -- implementacja systemu zapytań do~bazy danych, obsługa tworzonych kwerend;
+  \item utworzenie systemu publikacji i~podbijania aukcji -- dodanie maszyny stanów dla modelu aukcji, implementacja kontrolerów zarządzających zmianami stanu, zmiany w widokach dla funkcjonalności;
+\end{enumerate}
+
+\lstset{language=sh, caption=Lista zadań w~aplikacji \textit{ticgit}., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}} \label{code.simpleruby}
+\begin{lstlisting}
+TicId  Title                        State   Date  Assgn    Tags
+------------------------------------------------------------------------
+69418c Create a new rails projec... reso... 11/07 placek   environment
+36ce13 Prepare L10n and I18n env... reso... 11/07 placek   environment
+fca367 Prepare a devise models f... reso... 11/07 placek   users
+ed753d Create model for auction;... reso... 11/07 placek
+b2296e Prepare a publication sys... reso... 11/07 placek   auction,state
+\end{lstlisting}
