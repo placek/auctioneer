@@ -11,7 +11,6 @@ gem 'formtastic'
 gem 'thin'
 gem 'will_paginate'
 gem 'wirble', require: nil
-gem 'ruby-debug19', require: nil
 gem 'rspec-rails', '>= 2.6.1', group: [:development, :test]
 gem 'heroku'
 gem 'state_machine'
