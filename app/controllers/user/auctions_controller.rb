@@ -5,6 +5,7 @@ class User::AuctionsController < User::Base
 
   def index
     @auctions = current_user.auctions.paginate(page: params[:page])
+    @won_auctions = Auction.won_by(current_user).paginate(page: params[:page])
   end
 
   def show

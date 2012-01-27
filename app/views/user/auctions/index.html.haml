@@ -6,6 +6,7 @@
     %li= link_to t('auctions.created'), '#created_auctions'
     %li= link_to t('auctions.published'), '#published_auctions'
     %li= link_to t('auctions.finished'), '#finished_auctions'
+    %li= link_to t('auctions.won'), '#won_auctions'
 
   #created_auctions
     .big_button= link_to t('auctions.new'), new_user_auction_path
@@ -17,6 +18,9 @@
   #finished_auctions
     .auctions
       = render partial: :auction, collection: @auctions.finished
+  #won_auctions
+    .auctions
+      = render partial: :auction, collection: @won_auctions
 
 .clear
 .float-right= will_paginate(@auctions)

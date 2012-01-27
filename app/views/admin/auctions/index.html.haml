@@ -1,0 +1,34 @@
+= form_tag admin_auctions_path, method: :get do
+  = label_tag :q, "Filter:"
+  = text_field_tag :q, h(params[:q])
+  = submit_tag "Filter"
+  .grey
+    use '%' to match anything (like '%examp%')
+
+- unless params[:q].nil?
+  %p
+    Filtered with
+    %strong
+      = h(params[:q])
+
+= will_paginate(@users)
+
+%table
+  %tr
+    %th Title
+    %th State
+    %th Minimum price
+    %th Actual price
+    %th Created at
+    %th Actions
+  - @auctions.each do |auction|
+    %tr
+      %td= auction.title
+      %td= auction.state
+      %td= auction.minimum_price
+      %td= auction.actual_price
+      %td= auction.created_at
+
+      %td= link_to 'Delete', admin_auction_delete_path(auction), confirm: 'Are you sure?', method: :delete
+
+= will_paginate(@auctions)

@@ -11,6 +11,7 @@ class Auction < ActiveRecord::Base
   scope :closed, where(state: :closed)
   scope :won, where(state: :won)
   scope :finished, where('state = "closed" OR state = "won"')
+  scope :won_by, ->(user) { where(state: :won).where(winner_id: user.id) }
 
   def self.about_to_finish
     time = Time.now

@@ -29,6 +29,9 @@ Auctioneer::Application.routes.draw do
     get 'user/:id/confirm' => 'users#confirm', as: 'user_confirm'
     get 'user/:id' => 'users#show', as: 'user_show'
     delete 'user/:id' => 'users#destroy', as: 'user_delete'
+
+    get 'auctions' => 'auctions#index', as: 'auctions'
+    delete 'auction/:id' => 'auctions#destroy', as: 'auction_delete'
   end
 
   devise_for :admins
