@@ -21,13 +21,13 @@ Większość narzędzi wymienionych w~rozdziale \ref{narzedzia} Narzędzia możn
 W~celu zainstalowania \textit{RVM} należy wpisać w~konsoli:
 
 
-\texttt{bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)}
+\verb+bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)+
 
 
 Aby zainstalować Ruby w~wersji 1.9.3 należy wpisać:
 
 
-\texttt{rvm install 1.9.3}
+\verb+rvm install 1.9.3+
 
 
 Po~konfiguracji i~kompilacji zadanej wersji Ruby należy tylko przełączyć się na~nią:
@@ -43,7 +43,7 @@ Polecenie \texttt{ruby -v} powinno wypisać \texttt{ruby 1.ruby9.ruby93p0 (2011-
 Ruby~on~Rails instalujemy wpisując:
 
 
-\texttt{gem install rails}
+\verb+gem install rails+
 
 
 W~ten sposób można już utworzyć pierwszy, podstawowy projekt Ruby~on~Rails:
@@ -141,7 +141,7 @@ Po~edycji pliku \texttt{Gemfile} należy wywołać polecenie \texttt{bundle inst
 W~katalogu projektu stworzonego w~poprzednim punkcie należy zainicjować system kontroli wersji wpisując polecenie:
 
 
-\texttt{git init}
+\verb+git init+
 
 
 W~katalogu powstanie podkatalog \texttt{.git} zawierający wszystkie niezbędne informacje o historii tworzonego projektu.
@@ -150,7 +150,7 @@ W~katalogu powstanie podkatalog \texttt{.git} zawierający wszystkie niezbędne 
 W~projekcie mogą znajdować się pliki, dla~których nie chcemy przechowywać historii. Mogą to~być na~przykład pliki tymczasowe, logi, pliki backup, itp. Aby uniknąć dodawania ich do~historii rozwoju projektu należy utworzyć plik \texttt{.gitignore} i~dopisać tam niechciane pliki.
 
 
-Aby zapisać bieżący stan projektu w~historii należy zaznaczyć zmiany przy pomocy polecenia \texttt{git add .} oraz wykonać commit przy pomocy \texttt{git commit}. Otworzy się domyślny edytor tekstu, w którym należy podać komentarz dotyczący zmian.
+Aby zapisać bieżący stan projektu w~historii należy zaznaczyć zmiany przy pomocy polecenia \verb+git add .+ oraz wykonać commit przy pomocy \verb+git commit+. Otworzy się domyślny edytor tekstu, w którym należy podać komentarz dotyczący zmian.
 
 \lstset{language=bash, caption=Plik \texttt{.gitignore} projektu \textit{auctioneer}., basicstyle=\ttfamily\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}} \label{code.railsdir}
 \begin{lstlisting}
@@ -219,7 +219,29 @@ System aukcyjny powinien spełniać pewne podstawowe funkcjonalności, a~zatem p
 
 System powinien zadbać także o~bezpieczeństwo danych użytkowników systemu oraz udostępnić możliwość administrowania danymi przez osoby uprawnione (administratorzy).
 
-%TODO mockupy
+
+Rysunki \ref{mock1}, \ref{mock2} oraz \ref{mock3} przedstawiają szkice (mockupy) wykorzystane do~zaprojektowania interfejsu użytkownika aplikacji.
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=\textwidth]{obrazki/mock01.png}}
+\caption{Szkic panelu użytkownika.}
+\label{mock1}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=\textwidth]{obrazki/mock02.png}}
+\caption{Szkic wyszukiwarki aukcji.}
+\label{mock2}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=\textwidth]{obrazki/mock03.png}}
+\caption{Szkic strony aukcji.}
+\label{mock3}
+\end{figure}
 
 \subsubsection{Przypadki użycia i scenariusze}
 
