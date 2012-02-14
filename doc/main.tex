@@ -1,15 +1,17 @@
 % Ustawienia dokumentu
-\documentclass[oneside]{book}
+\documentclass[11pt,oneside]{book}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage{wrapfig}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{txfonts}
 \usepackage{listings}
 \usepackage[polish]{babel}
+\usepackage{fullpage}
 \usepackage{color}
+\usepackage{caption}
 \usepackage[pdftex]{hyperref}
+
 \hypersetup{
   colorlinks,
   urlcolor=blue,
@@ -17,13 +19,14 @@
   linkcolor=red
 }
 \urlstyle{rm}
+\linespread{1.2}  % interlinia
+\captionsetup[figure]{name=Rys.}
 
 % definicje typów
 \definecolor{LightGray}{cmyk}{0,0,0,0.1}
 \newtheorem{definition}{Definicja}
 
 % informacje o dokumencie
-
 \author{Paweł~Placzyński}
 \title{System aukcyjny w~Ruby~on~Rails}
 \date{\today}
@@ -31,31 +34,33 @@
 % DOKUMENT
 \begin{document}
 
-%\maketitle
-
 \tableofcontents
 
 \chapter{Wstęp}
 
 \include{cele}
 
-\chapter{Aspekty teoretyczne}
+\chapter{Technologie i~narzędzia}
 
-\textit{W~poniższym rozdziale opisane są~technologie, narzędzia oraz~metodyki i~filozofie, które wykożystane zostały podczas realizacji celów pracy.}
+\textit{W~poniższym rozdziale opisane są~technologie oraz~narzędzia, które wykorzystane zostały podczas realizacji systemu aukcyjnego w~Ruby~on~Rails.}
 
 \include{technologie}
 
 \include{narzedzia}
 
+\chapter{Metodyka pracy}
+
+\textit{W~tym rozdziale opisana została organizacja pracy nad projektem, konwencje użyte podczas tworzenia aplikacji oraz~standardy pracy w~zespole programistycznym.}
+
 \include{scrum}
 
 \include{dokumentacja}
 
-\textit{W~następnym rozdziale zaprezentowany zostanie proces tworzenia systemu aukcyjnego oraz~opisany zostanie utworzony prototyp.}
+\textit{Opisane powyżej metody pracy z~projektem zostały zastosowane w~systemie aukcyjnym, będącym celem pracy.\\\\W~następnym rozdziale zaprezentowany zostanie proces tworzenia systemu aukcyjnego oraz~opisany zostanie utworzony prototyp.}
 
-\chapter{Postępy pracy}
+\chapter{Projekt systemu aukcyjnego}
 
-\textit{W~rozdziale tym opisany został proces tworzenia aplikacji, a~także końcowy efekt i~wnioski dotyczące zagadnienia.}
+\textit{W~rozdziale tym opisany został proces tworzenia aplikacji \texttt{auctioneer}, a~także końcowy efekt i~wnioski dotyczące stworzonego systemu aukcyjnego.}
 
 \include{wprowadzenie}
 
@@ -63,11 +68,7 @@
 
 \include{projekt}
 
-\textit{W~następnym rozdziale zostanie podsumowany i~oceniony przebieg pracy.}
-
 \chapter{Podsumowanie}
-
-\textit{W~tym rozdziale zostanie podsumowany projekt oraz wypisane wnioski z~przebiegu pracy.}
 
 \include{obserwacje}
 

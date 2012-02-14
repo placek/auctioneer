@@ -1,6 +1,6 @@
 \section{Dokumentacja projektu} \label{dokumentacja}
 
-Projekty systemów informatycznych mają to~do~siebie, że~rozwijają się niezwykle szybko. Rozwój projektu związany jest niestety z~powiększaniem objętości projektu -- zarówno merytorycznej, jak i~czysto fizycznej (ilość linijek kodu, ilość plików). Problem pojawia się, gdy projekt jest zbyt ,,duży'' żeby programista mógł rozumieć wszystko to, co~się w~nim dzieje. Rozwiązaniem dla tego problemu jest tworzenie dokumentacji.
+Projekty systemów informatycznych mają to~do~siebie, że~rozwijają się niezwykle szybko. Rozwój projektu związany jest niestety z~powiększaniem objętości projektu -- zarówno merytorycznej, jak i~czysto fizycznej (ilość linijek kodu, ilość plików). Problem pojawia się, gdy projekt jest zbyt ,,duży'', żeby programista mógł rozumieć wszystko to, co~się w~nim dzieje. Rozwiązaniem dla tego problemu jest tworzenie dokumentacji.
 
 
 W~projektach typu \textit{OpenSource} dokumentacja jest niezwykle ważnym czynnikiem usprawniającym pracę programistów w~nich pracujących. Dobrze napisana dokumentacja sprawia, że~nowe osoby zaczynające pracę w~projekcie mogą łatwiej i~szybciej zapoznać się ze~strukturą, działaniem oraz~organizacją projektu. Jest to~szczególnie przydatne, gdy istnieje potrzeba edycji jedynie niewielkiego fragmentu projektu. Co~więcej -- osoby zajmujące się już od~dłuższego czasu pracą w~takim projekcie nie muszą pamiętać wszelkich zagadnień z~nim związanych.
@@ -11,19 +11,19 @@ W~projektach typu \textit{OpenSource} dokumentacja jest niezwykle ważnym czynni
 Najlepszą dokumentacją dla systemu informatycznego jest kod aplikacji. To~właśnie on~realizuje wszystkie założenia projektowe, algorytmy lub cykle pracy projektu. Prawidłowo napisany kod może powiedzieć więcej niż nie jedna dokumentacja -- tu~dowiadujemy się, jak naprawdę działa interesujący nas moduł i~mamy pewność, że~nie padniemy ofiarą nieporozumień. Pod pojęciem ,,prawidłowo napisany kod'' rozumie się spełnienie następujących założeń:
 
 \begin{itemize}
-  \item trzymanie się konwencji określającej osnowę dokumentu, zawierającego kod,
+  \item ,,trzymanie się'' konwencji określającej osnowę dokumentu, zawierającego kod,
   \item stosowanie zrozumiałych nazw dla wszelkich struktur (nazwy klas, metod, zmiennych),
-  \item tworzenie krótkich i~treściwych fragmentów kodu oraz~rozbijanie większych partii na~mniejsze.
+  \item tworzenie krótkich i~treściwych fragmentów kodu oraz~rozbijanie większych partii kodu na~mniejsze.
 \end{itemize}
 
 Wszystkie te kroki mają na celu sprawienie, że~kod stanie się bardziej czytelny. Poniżej omówiono te~trzy kroki nieco dokładniej w~zastosowaniu dla języka Ruby.
 
 \subsubsection{Konwencja} \label{dokumentacja.konwencja}
 
-Język Ruby ze~względu na~swoją składnię jest niezwykle czytelny, a~co~za~tym idzie, kod w~nim napisany jest łatwy w~zrozumieniu. Składnia Rubiego przypomina pseudokod:
+Język Ruby ze~względu na~swoją składnię jest niezwykle czytelny, a~co~za~tym idzie, kod w~nim napisany jest łatwy w~zrozumieniu. Składnia Rubiego przypomina pseudokod (listing \ref{code.simpleruby}).
 
-  \lstset{language=Ruby, caption=Przykład prostej składni języka Ruby -- algorytm DFS., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}} \label{code.simpleruby}
-  \begin{lstlisting}
+  \lstset{language=Ruby, caption=Przykład prostej składni języka Ruby -- algorytm DFS, basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}[label={code.simpleruby}]
   def dfs node, value, queue
     return false if node.nil?
     return true if node.data == value
@@ -33,10 +33,10 @@ Język Ruby ze~względu na~swoją składnię jest niezwykle czytelny, a~co~za~ty
   end
   \end{lstlisting}
 
-Niestety -- sama składnia nie jest najważniejsza w~dokumentowaniu projektów. Powyższy przykład można przecież przepisać w~inny sposób:
+Niestety sama składnia nie jest najważniejsza w~dokumentowaniu projektów. Powyższy przykład można przecież przepisać w~inny sposób (listing \ref{code.unclear}
 
-  \lstset{language=Ruby, caption=Algorytm DFS z~zastosowaniem braku konwencji formatu., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
-  \begin{lstlisting}
+  \lstset{language=Ruby, caption=Algorytm DFS z~zastosowaniem braku konwencji formatu, basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}[label={code.unclear}]
   def dfs node, value, queue
   return false if node.nil?; if node.data == value
   return true
@@ -48,7 +48,7 @@ Niestety -- sama składnia nie jest najważniejsza w~dokumentowaniu projektów. 
   end
   \end{lstlisting}
 
-Przykład ten jest mniej czytelny, a~co~za~tym idzie, trudniej jest dowiedzieć się, za~co~dany fragment kodu jest odpowiedzialny. W~celu uzyskania ,,przejrzystości'' kodu stosuje się konwencje zapisu -- ogólnie przyjęte zasady mówiące o~tym jak powinien wyglądać kod i~jak ten kod formatować. Język Ruby posiada swoją konwencję o~nazwie \textit{The Ruby Style} \cite{therubyway}, która określona jest następująco:
+Przykład ten jest mniej czytelny, a~co~za~tym idzie, trudniej jest dowiedzieć się, za~co~dany fragment kodu jest odpowiedzialny. W~celu uzyskania ,,przejrzystości'' kodu stosuje się konwencje zapisu -- ogólnie przyjęte zasady mówiące o~tym, jak powinien wyglądać kod i~jak ten kod formatować. Język Ruby posiada swoją konwencję o~nazwie \textit{The Ruby Style} \cite{therubyway}, która określona jest następująco:
 
 \begin{enumerate}
   \item Formatowanie:
@@ -61,7 +61,7 @@ Przykład ten jest mniej czytelny, a~co~za~tym idzie, trudniej jest dowiedzieć 
     \item Używaj dwóch spacji przed modyfikatorem warunku (\texttt{if}/\texttt{unless}/\texttt{while}/\texttt{until}/\texttt{resque}).
     \item Wcięcie dla słowa kluczowego \texttt{when} powinno być tak głębokie, jak dla \texttt{case}.
     \item Użyj pustego wiersza przed zwracaną wartością w~metodzie (chyba, że~ma~ona tylko jeden wiersz), a~także przed słowem kluczowym \texttt{def}
-    \item Używaj RDoc do~dokumentacji API. Nie wstawiaj pustego wiersza pomiędzy komentarz a~komentowany blok.
+    \item Używaj \textit{RDoc} do~dokumentacji API. Nie wstawiaj pustego wiersza pomiędzy komentarz a~komentowany blok.
     \item Użyj pustego wiersza do~podzielenia dużych metod na~logiczne fragmenty.
     \item Staraj się, aby~każdy wiersz miał mniej niż 80 znaków.
     \item Unikaj białych znaków na~końcu wiersza.
@@ -74,10 +74,10 @@ Przykład ten jest mniej czytelny, a~co~za~tym idzie, trudniej jest dowiedzieć 
     \item Użyj ,,\texttt{when x;} \ldots'' dla jednolinijkowego wyrażenia \texttt{case}.
     \item Użyj \texttt{\&\&}/\texttt{||} dla wyrażeń boolowskich, \texttt{and}/\texttt{or} do~kontroli przepływu.
     \item Unikaj wielolinikowej instrukcji \texttt{?:}, użyj \texttt{if}.
-    \item Zaniechaj użycia nawiasów przy wywołaniu metod, ale użyj ich podczas wywołania ,,funkcji'' (na~przykład~gdy używasz zwracanej wartości w~tym samym wierszu)
-    \item Używaj raczej \mbox{\texttt{\{} \ldots \texttt{\}}} niż \mbox{\texttt{do} \ldots \texttt{end}}. Wielolinijkowe bloki \mbox{\texttt{\{} \ldots \texttt{\}}} są~w~porządku: używając \texttt{\}} na końcu bloku wiemy, że~kończy się blok a~nie instrukcja \texttt{if}/\texttt{while}/\ldots. Używaj \mbox{\texttt{do} \ldots \texttt{end}} do~kontroli przepływu (na~przykład~zadania \texttt{rake}, bloki \texttt{sinatra}).
-    \item Unikaj używania słowa kluczowego \texttt{return} jeśli nie jest potrzebne.
-    \item Unikaj kontynuacji linii (\texttt{$ \backslash $}) jeśli nie musisz.
+    \item Zaniechaj użycia nawiasów przy wywołaniu metod, ale użyj ich podczas wywołania ,,funkcji'' (na~przykład~gdy używasz zwracanej wartości w~tym samym wierszu).
+    \item Używaj raczej \mbox{\texttt{\{} \ldots \texttt{\}}} niż \mbox{\texttt{do} \ldots \texttt{end}}. Wielolinijkowe bloki \mbox{\texttt{\{} \ldots \texttt{\}}} są~poprawne: używając \texttt{\}} na końcu bloku wiemy, że~kończy się blok a~nie instrukcja \texttt{if}/\texttt{while}/\ldots. Używaj \mbox{\texttt{do} \ldots \texttt{end}} do~kontroli przepływu (na~przykład~zadania \texttt{rake}, bloki \texttt{sinatra}).
+    \item Unikaj używania słowa kluczowego \texttt{return}, jeśli nie jest potrzebne.
+    \item Unikaj kontynuacji linii (\texttt{$ \backslash $}), jeśli nie musisz.
     \item Używanie zwracanej wartości przez operator \texttt{=} jest na miejscu.
     \item Używaj operatora \texttt{||=}.
     \item Używaj wyrażeń regularnych typu ,,non-OO''.  Nie bój się używać \texttt{=~}, \texttt{\$0-9}, \texttt{\$~}, \texttt{\$`} oraz~\texttt{\$'} jeśli potrzebujesz.
@@ -87,10 +87,10 @@ Przykład ten jest mniej czytelny, a~co~za~tym idzie, trudniej jest dowiedzieć 
     \item Używaj \textit{snake\_case} jako stylu nazywania metod.
     \item Używaj \textit{CamelCase} jako stylu nazywania klas i~modułów (pozostaw akronimy takie jak HTTP, RFC, XML z~wielkich liter).
     \item Używaj SCREAMING\_SNAKE\_CASE jako stylu nazywania stałych.
-    \item Długość nazwy zwykle określa kontekst wykorzystania. Używaj jednoliterowych zmiennych jako parametrów bloków/metod według tego schematu:\\
+    \item Długość nazwy zwykle określa kontekst wykorzystania. Używaj jednoliterowych zmiennych jako parametrów bloków/metod według schematu:\\
       \texttt{a}, \texttt{b}, \texttt{c}, \texttt{o}: dowolny obiekt;\\
       \texttt{d}: katalog;\\
-      \texttt{e}: element (klasy Emumerable oraz~pochodnych);\\
+      \texttt{e}: element (klasy \texttt{Emumerable} oraz~pochodnych);\\
       \texttt{ex}: wyjątek;\\
       \texttt{f}: plik:\\
       \texttt{i}, \texttt{j}: indeksy;\\
@@ -103,7 +103,7 @@ Przykład ten jest mniej czytelny, a~co~za~tym idzie, trudniej jest dowiedzieć 
       Ponadto, pierwsza litera klasy obiektu może posłużyć za~nazwę takiej zmiennej.
 
     \item Używaj nazw zaczynających się od~\texttt{\_} dla nieużywanych zmiennych.
-    \item Używając \texttt{inject} dla krótkich bloków nazywaj argumenty \texttt{|a, e|} (od:~akumulator, element).
+    \item Używając \texttt{inject} dla krótkich bloków nazywaj argumenty \texttt{|a, e|} (akumulator, element).
     \item Definiując operatory dwuargumentowe, nazywaj argument jako ,,other''.
     \item Używaj raczej \texttt{map} niż \texttt{collect}, \texttt{find} niż \texttt{detect}, \texttt{find\_all} niż \texttt{select} oraz~\texttt{size} niż \texttt{length}.
   \end{enumerate}
@@ -128,12 +128,12 @@ Przykład ten jest mniej czytelny, a~co~za~tym idzie, trudniej jest dowiedzieć 
   \end{enumerate}
   \item Ogólne zasady:
   \begin{enumerate}
-    \item Programuj w sposób funkcjonalny.
+    \item Programuj w~sposób funkcjonalny.
     \item Nie wydziwiaj z~używaniem argumentów metod -- chyba, że~wiesz co robisz.
     \item Nie zmieniaj funkcjonalności standardowych bibliotek pisząc własne.
-    \item Nie programuj zachowawczo\footnote{Patrz: \url{http://www.erlang.se/doc/programming\_rules.shtml\#HDR11}}.
+    \item Nie programuj zachowawczo \cite{zachowawcze}.
     \item Postaraj się zachować prostotę kodu.
-    \item Nie przesadź z~projektowaniem.
+    \item Nie nadużywaj projektowania.
     \item Ale także nie pozostaw swojej pracy niezaprojektowanej.
     \item Unikaj błędów.
     \item Poczytaj o innych konwencjach, aby móc rozwinąć tę.
@@ -142,25 +142,25 @@ Przykład ten jest mniej czytelny, a~co~za~tym idzie, trudniej jest dowiedzieć 
   \end{enumerate}
 \end{enumerate}
 
-Stosowanie tej konwencji zapewni, że~kod napisany przez nas będzie zgodny z~ogólnym standardem.
+Stosowanie tej konwencji zapewni, że~napisany kod będzie zgodny z~ogólnym standardem.
 
 \subsubsection{Nazewnictwo w~kodzie} \label{dokumentacja.nazewnictwo}
 
-Aby zrozumieć istotę działania projektu należy zrozumieć mechanizmy i~algorytmy rządzące jego logiką. Zakładając, że~chcemy dobrze odokumentować projekt, trzeba tak napisać kod, by~był zrozumiały -- jak pseudokod opisujący algorytm. W~tym celu wystarczy, że~wszelkie obiekty w~ kodzie, nazwiemy tak, by~ich użycie w~kontekscie było zrozumiałe a~ich rola jasna. W~trakcie pisania kodu najtrudniejszą kwestią jest nazywanie obiektów, a~nie -- jak to~się powszechnie uznaje -- rozwiązanie logiki systemu.
+Aby zrozumieć istotę działania projektu należy zrozumieć mechanizmy i~algorytmy rządzące jego logiką. Zakładając, że~chcemy utworzyć dobrą dokumentację projektu, trzeba tak napisać kod, by~był zrozumiały -- jak pseudokod opisujący algorytm. W~tym celu wystarczy, że~wszelkie obiekty w~ kodzie, nazwiemy tak, by~ich użycie w~kontekscie było zrozumiałe a~ich rola jasna. W~trakcie pisania kodu najtrudniejszą kwestią jest nazywanie obiektów, a~nie -- jak to~się powszechnie uznaje -- rozwiązanie logiki systemu.
 
 \subsection{Komentarze} \label{dokumentacja.komentarze}
 
-Komentarze w~kodzie to~dobrzy sposób na~wyjaśnienie zasadności użycia algorytmów, bądź struktury API poszczególnych elementów kodu. Stosowanie komentarzy pozwala także wyróżnić, co~ważniejsze dla ,,czytelnika'' elementy kodu.
+Komentarze w~kodzie to~dobrzy sposób na~wyjaśnienie zasadności użycia algorytmów, bądź struktury API poszczególnych elementów kodu. Stosowanie komentarzy pozwala także wyróżnić, ważniejsze dla ,,czytelnika'' elementy kodu.
 
 \subsubsection{RDoc} \label{dokumentacja.rdoc}
 
 Istnieje wiele konwencji dotyczących~formy komentarzy. Format komentarzy ma~znaczenie nie tylko podczas czytania kodu -- może on~posłużyć pośrednio do~wygenerowania pełnej dokumentacji API przy użyciu odpowiednich narzędzi.
 
 
-Komentarze w~języku Ruby mogą być dwojakiego formatu:
+Komentarze w~języku Ruby mogą być dwojakiego formatu (listing \ref{code.comments}).
 
-  \lstset{language=Ruby, caption=Komentarze w~języku Ruby., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
-  \begin{lstlisting}
+  \lstset{language=Ruby, caption=Komentarze w~języku Ruby, basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}[label={code.comments}]
     # Komentarz jednolinijkowy rozpoczyna sie
     # od znaku krzyzyka.
 
@@ -174,7 +174,7 @@ Komentarze w~języku Ruby mogą być dwojakiego formatu:
   \end{lstlisting}
 
 
-Narzędzie \textit{RDoc}\footnote{Patrz: \url{rdoc.sourceforge.net}} to~narzędzie konsolowe generujące dokumentację API w~zadanym formacie (standardowo jest to~HTML) na~podstawie kodu oraz~komentarzy w~nim zawartych. Aby wygenerować taką dokumentację wystarczy wpisać w~konsoli:
+Narzędzie \textit{RDoc} \cite{rdoc} to~narzędzie konsolowe generujące dokumentację API w~zadanym formacie (standardowo jest to~HTML) na~podstawie kodu oraz~komentarzy w~nim zawartych. Aby wygenerować taką dokumentację wystarczy wpisać w~konsoli:
 
 \mbox{\texttt{\$ rdoc <opcje> [plik...] }}
 
@@ -185,19 +185,19 @@ Narzędzie \textit{RDoc}\footnote{Patrz: \url{rdoc.sourceforge.net}} to~narzędz
 Testy to~dodatkowe aplikacje sprawdzające poprawność logiki projektu. Zasadniczą ich funkcją jest dowiedzenie, że~dana funkcjonalność została zaimplementowana poprawnie.
 
 
-Testować w~aplikacji można wszystko, jednak dobrze jest ustalić co~chce się uzyskać poprzez napisanie testów. Biorąc pod uwagę powyższe kryterium testy dzieli się na:
+Testować w~aplikacji można wszystko, jednak dobrze jest ustalić, co~chce się uzyskać poprzez napisanie testów. Biorąc pod uwagę powyższe kryterium testy dzieli się na:
 
 \begin{enumerate}
- \item \textit{testy jednostkowe} -- sprawdzają poprawność modułów ,,silnika'' aplikacji. Za~pomocą testów jednostkowych testuje się zwykle klasy, metody, stany maszyny, poprawność algorytmów, wejścia i~wyjścia strumieni itp.
- \item \textit{testy behawioralne} -- odpowiadają na~pytanie: ,,co~się stanie, gdy zrobimy \ldots''. Testują one zachowanie aplikacji -- reakcję na~żądania, efekty działania zdarzeń (takich jak, na przykład, wypełnienie formularza).
+ \item \textit{Testy jednostkowe} -- sprawdzają poprawność modułów ,,silnika'' aplikacji. Za~pomocą testów jednostkowych testuje się zwykle klasy, metody, stany maszyny, poprawność algorytmów, wejścia i~wyjścia strumieni.
+ \item \textit{Testy behawioralne} -- odpowiadają na~pytanie: ,,co~się stanie, gdy zrobimy \ldots''. Testują zachowanie aplikacji -- reakcję na~żądania, efekty działania zdarzeń (takich jak, na przykład, wypełnienie formularza).
 \end{enumerate}
 
 \subsubsection{Testy jednostkowe RSpec} \label{dokumentacja.rspec}
 
-\textit{RSpec}\footnote{Patrz: \url{rspec.info}} jest narzędziem do~tworzenia testów jednostkowych dla aplikacji napisanych w~języku Ruby. Jego składnia jest prosta, a~testy w~nim napisane -- czytelne:
+\textit{RSpec} \cite{rspec} jest narzędziem do~tworzenia testów jednostkowych dla aplikacji napisanych w~języku Ruby. Jego składnia jest prosta, a~testy w~nim napisane -- czytelne (listing \ref{code.simple_test}).
 
-  \lstset{language=Ruby, caption=Test RSpec testujący klasę \texttt{Array}., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}} \label{code.prostytest}
-  \begin{lstlisting}
+  \lstset{language=Ruby, caption=Test \textit{RSpec} testujący klasę \texttt{Array}, basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+  \begin{lstlisting}[label={code.simple_test}]
   describe Array do
     describe "#push" do
       it "puts a value at the end of array" do
@@ -210,27 +210,27 @@ Testować w~aplikacji można wszystko, jednak dobrze jest ustalić co~chce się 
   end
   \end{lstlisting}
 
-W~pierwszej kolejności podaje się opis testu -- krótką informację o~tym co~testujemy i~jakie są oczekiwania względem testowanego obiektu. Wewnątrz bloku testu realizuje się przypadek użycia obiektu. W~każdym momencie można sprawdzić, czy interesujący nas stan obiektu jest zgodny z~naszymi oczekiwaniami. W~tym celu używa się metod \texttt{should} oraz~\texttt{should\_not}.
+W~pierwszej kolejności podaje się opis testu -- krótką informację o~tym, co~testujemy i~jakie są oczekiwania względem testowanego obiektu. Wewnątrz bloku testu realizuje się przypadek użycia obiektu. W~każdym momencie można sprawdzić, czy interesujący nas stan obiektu jest zgodny z~naszymi oczekiwaniami. W~tym celu używa się metod \texttt{should} oraz~\texttt{should\_not}.
 
 
 Testy uruchamiamy podając w~konsoli polecenie \texttt{rspec} oraz~plik z~napisanymi testami:
 
 \mbox{\texttt{\$ rspec nazwa\_pliku\_testu.rb}}
 
-Trzeba pamiętać, że~testy powinny mieć dostęp do~logiki projektu -- na~przykład~poprzez użycie instrukcji \texttt{require}. Efektem działania testu z~przykładu \ref{code.prostytest} będzie:
+Trzeba pamiętać, że~testy powinny mieć dostęp do~logiki projektu -- na~przykład~poprzez użycie instrukcji \texttt{require}. Efektem działania testu z~przykładu \ref{code.simple_test} widoczny jest na listingu \ref{code.simple_test_results}
 
-  \lstset{language=bash, caption=Efekt uruchomienia testu jednostkowego z~poprzedniego przykładu., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
-  \begin{lstlisting}
+\lstset{language=bash, caption=Efekt uruchomienia testu jednostkowego z~przykładu \ref{code.simple_test}, basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+\begin{lstlisting}[label={code.simple_test_results}]
 .
 
 Finished in 0.00258 seconds
 1 example, 0 failures
-  \end{lstlisting}
+\end{lstlisting}
 
-Aby zrozumieć, co~stało się podczas testowania, można zmienić format wyjścia na~bardziej przyjazny:
+Aby zrozumieć, co~stało się podczas testowania, można zmienić format wyjścia na~bardziej przyjazny (listing \ref{code.test_pretty}).
 
-  \lstset{language=bash, caption=Efekt uruchomienia testu jednostkowego z~opcją \texttt{----format d}., basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
-  \begin{lstlisting}
+\lstset{language=bash, caption=Efekt uruchomienia testu jednostkowego z~opcją \texttt{----format d}, basicstyle=\ttfamily\footnotesize, numbers=left, numberstyle=\footnotesize, captionpos=b, backgroundcolor=\color{LightGray}}
+\begin{lstlisting}[label={code.test_pretty}]
 Array
   #push
     puts a value at the end of array
@@ -239,15 +239,15 @@ Finished in 0.0029 seconds
 1 example, 0 failures
 \end{lstlisting}
 
-Jak widać \texttt{rspec} poinformował o~tym, które testy ,,przeszły'' -- czyli, które z~testowanych przez funkcjonalności spełniły oczekiwania.
+Jak widać \texttt{rspec} poinformował o~tym, które testy ,,przeszły'' -- czyli, które z~testowanych funkcjonalności spełniły oczekiwania.
 
 \subsubsection{RSpec jako dokumentacja}
 
-Przykład \ref{code.prostytest} mówi dość dużo o~sposobie użycia elementów logiki projektu. Testy jednostkowe są~tak naprawdę przypadkami użycia tychże elementów. Co~więcej -- przypadki te~realizują się zgodnie z~założeniami twórcy takiego projektu (uruchomione testy ,,przechodzą''). Oznacza to, że~są one dobrą dokumentacją działania i~sposobu użycia poszczególnych obiektów logiki projektu.
+Przykład \ref{code.simple_test} mówi dość dużo o~sposobie użycia elementów logiki projektu. Testy jednostkowe są~tak naprawdę przypadkami użycia tychże elementów. Co~więcej -- przypadki te~realizują się zgodnie z~założeniami twórcy takiego projektu (uruchomione testy ,,przechodzą''). Oznacza to, że~są one dobrą dokumentacją działania i~sposobu użycia poszczególnych obiektów logiki projektu.
 
 \subsubsection{Dokumentacja poprzez testy behawioralne} \label{dokumentacja.cucumber}
 
-Skoro testy jednostkowe są~swego rodzaju dokumentacją, to~także testy behawioralne mogą nią być. Oczywiście ze~względu na~inny cel testy behawioralne będą dokumentować projekt z~innej perspektywy. Testy te~określają zachowanie aplikacji, a~zatem kwestii ściśle związanej z~użytkowaniem. W~praktyce testy behawioralne są~stosowane dla określenia wymagań ze~strony klienta -- zleceniodawcy projektu.
+Skoro testy jednostkowe są~swego rodzaju dokumentacją, to~także testy behawioralne mogą nią być. Oczywiście ze~względu na~inny cel testy behawioralne będą dokumentować projekt z~innej perspektywy. Testy te~określają zachowanie aplikacji, a~zatem kwestię ściśle związane z~użytkowaniem. W~praktyce testy behawioralne są~stosowane dla określenia wymagań ze~strony klienta -- zleceniodawcy projektu.
 
 
-Istnieje kilka narzędzi, przy pomocy których można napisać i~przeprowadzić testy behawioralne. Można do~tego użyć \texttt{rspec} oraz~\texttt{Test::Unit} (czyli narzędzi wykorzystywanych przy pisaniu testów jednostkowych). Dla dobrej czytelności oraz~eleganckiego formatu użyto narzędzia \textit{Cucumber}\footnote{Patrz: \url{cukes.info}}.
+Istnieje kilka narzędzi, przy pomocy których można napisać i~przeprowadzić testy behawioralne. Można do~tego użyć \texttt{rspec} oraz~\texttt{Test::Unit} (czyli narzędzi wykorzystywanych przy pisaniu testów jednostkowych). Dla dobrej czytelności oraz~eleganckiego formatu użyto narzędzia \textit{Cucumber} \cite{cucumber}.
