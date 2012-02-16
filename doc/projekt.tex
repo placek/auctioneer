@@ -370,6 +370,13 @@ Realizacja poszczególnych zadań ma~swoje odzwierciedlenie w~historii kodu w~re
 
 Poniżej zamieszczono opis stworzonej aplikacji od~strony osoby jej użytkującej. Osobą taką może być jeden z~trzech aktorów: gość, zwykły użytkownik oraz administrator. Możliwe działania dla poszczególnych aktorów tworzą scenariusze dla poszczególnych przypadków użycia. Założono, że~punktem wyjścia jest odwiedzenie przez aktora strony głównej projektu (Rys. \ref{screen01}).
 
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=\textwidth]{obrazki/auctioneer01.png}}
+\caption{Strona główna serwisu \textit{auctioneer} -- lista wystawionych aukcji}
+\label{screen01}
+\end{figure}
+
 \subsection{Opis projektu od strony gościa}
 
 \paragraph{Strona główna}
@@ -390,59 +397,6 @@ Na~stronie głównej znajdują się następujące aktywne elementy:
 
 Pole tekstowe wyszukiwarki aukcji pozwala na~wyselekcjonowanie aukcji, znajdujących się w~liście poniżej, według zadanych kryteriów. Wpisanie wyszukiwanej frazy oraz~wciśnięcie klawisza \texttt{Enter} spowoduje przejście do~strony z~wynikami wyszukiwania (Rys. \ref{screen02}). Strona z~wynikami wyszukiwania jest podobna do~strony głównej, z~tą~różnicą, że~ponad wynikami wyszukiwania widoczna jest informacja na~temat wyszukiwanej frazy.
 
-
-Link ,,Zaloguj'' przekierowuje gościa do~formularza logowania (Rys. \ref{screen03}). Formularz logowania opisany został poniżej. Link ,,Zarejestruj'' przekierowuje do~formularza rejestracji (Rys. \ref{screen13}). Zestaw odsyłaczy: ,,Nazwa'', ,,Minimalna cena'' oraz ,,Aktualna cena''  zmienia kolejność wyświetlania aukcji, sortując je~według nazwy, minimalnej oraz aktualnej ceny (ponowne wybranie linku odwraca kolejność sortowania). Link-nagłówek ,,Auctioneer'' prowadzi zawsze na~stronę główną.
-
-
-Zestaw przycisków: ,,Wstecz'', ,,1'', ,,2'', \ldots, ,,Dalej'' pozwala przeglądać kolejne strony wystawionych aukcji (mechanizm ,,paginacji stron'').
-
-
-\paragraph{Aukcje}
-
-Na stronie głównej znajduje się lista aukcji. Każda aukcja ma~przy swoim opisie przycisk ,,Więcej'' prowadzący do~strony aukcji (Rys. \ref{screen09}).
-
-
-Strona aukcji zawiera pełny opis wystawionej aukcji. Przycisk ,,Wróć'' pozwala wrócić na~stronę główną, a przycisk ,,Podbij'' prowadzi do~formularza podbijania aukcji (Rys. \ref{screen10}). Jeśli użytkownik nie jest zalogowany to~po~naciśnięciu przycisku ,,Podbij'' zostaje on~przekierowany do~formularza logowania. Po~prawidłowym zalogowaniu, użytkownik zostaje automatycznie przekierowany do~formularza podbijania aukcji.
-
-\paragraph{Formularz logowania}
-
-Formularz logowania umożliwia niezalogowanemu użytkownikowi otworzyć nową, bezpieczną sesję. Pola tekstowe pozwalają na~wprowadzenie danych logowania: adresu e-mail oraz hasła. Użycie opcji ,,Zapamiętaj mnie'' skutkuje tym, że~sesja użytkownika nie wygaśnie, gdy użytkownik będzie nieaktywny przez dłuższy czas. Przycisk ,,Zaloguj'' służy do~zatwierdzenia operacji logowania.
-
-
-Jeżeli operacja logowania przeszła pomyślnie (użytkownik o~podanym adresie e-mail oraz haśle posiada konto w~serwisie oraz~zostało aktywowane, ponadto adres e-mail oraz hasło zostały poprawnie podane), to~otwarta zostaje sesja użytkownika oraz zostanie on~przekierowany do~panelu użytkownika. Akcje dla zalogowanego użytkownika opisuje podrozdział \ref{man.user}.
-
-Pod formularzem znajdują się odnośniki pomagające użytkownikowi zarejestrować się, bądź odzyskać utracone hasło. Link ,,Zarejestruj'' przekierowuje do~formularza rejestracji, link ,,Zapomniałeś hasła?'' przekierowuje do~formularza zmiany hasła (Rys. \ref{screen11}), natomiast link ,,Nie otrzymałeś potwierdzenia rejestracji?'' przekierowuje do~formularza ponownego wysłania potwierdzenia rejestracji, gdy takie potwierdzenie nie zostało poprawnie wysłane na~adres e-mail użytkownika (Rys. \ref{screen12}).
-
-\subsection{Opis projektu od~strony użytkownika} \label{man.user}
-
-\paragraph{Panel użytkownika (Kokpit)}
-
-Po~zalogowaniu, użytkownik zostaje przekierowany do~panelu użytkownika (Rys. \ref{screen04}). W~,,nagłówku'' strony znajduje się zestaw odnośników: link ,,Kokpit'' prowadzi do~panelu użytkownika, link ,,Profil'' prowadzi do~formularza edycji profilu (Rys. \ref{screen07}), a~link ,,Wyloguj'' zamyka sesję użytkownika i~przekierowuje na~stronę główną.
-
-
-Na~panelu użytkownika widoczne są zakładki: \textit{Nowe}, \textit{Wystawione}, \textit{Zakończone}, \textit{Wygrane}. Otwierają one kolejno: listę nowo utworzonych aukcji użytkownika, listę aukcji aktualnie wystawionych przez użytkownika, listę aukcji zakończonych oraz listę aukcji wygranych przez użytkownika.
-
-
-Każda aukcja, z~dowolnej, wyżej wymienionej listy, posiada dwa przyciski: ,,edytuj'' -- prowadzący do~formularza edycji aukcji (Rys. \ref{screen06}) oraz ,,usuń'' -- powodujący usunięcie aukcji po~uprzednim potwierdzeniu operacji. Ponadto aukcja posiada przyciski zmiany stanu: aukcje z~listy \textit{Nowe} posiadają przycisk ,,wystaw'', aukcje z~listy \textit{Wystawione} -- ,,zakończ'' oraz~aukcje z~listy \textit{Zakończone} -- ,,wystaw ponownie''.
-
-\paragraph{Panel edycji aukcji}
-
-Panel edycji aukcji posiada pole tekstowe zmiany nazwy (tytułu) aukcji, pole tekstowe zmiany ceny minimalnej aukcji oraz pole tekstowe zaopatrzone w~zestaw narzędzi, służących do~formatowania tekstu, do~edycji opisu aukcji. Przycisk ,,Aktualizuj'' zatwierdza zmiany.
-
-\subsection{Opis projektu od strony administratora}
-
-Aby odwiedzić panel administratora (Rys. \ref{screen08}) należy podać ścieżkę \textit{adres\_bazowy\_aplikacji}\texttt{/admin}. Wyświetli się wówczas formularz logowania administratora. Podając odpowiednie dane (adres e-mail oraz hasło) można zarządzać aplikacją z~poziomu administratora.
-
-W~panelu administratora znajdują się:
-
-\begin{itemize}
-  \item Link ,,Leave panel'', który pozwala wyjść z~panelu, pozostając zalogowanym jako administrator. Link ten przekierowuje na~stronę główną.
-  \item Link ,,Sign out'' umożliwia wylogowanie administratora.
-  \item Link ,,Admins'' pokazuje listę administratorów serwisu. Lista ta~udostępnia następujące akcje: wyszukanie administratora według adresu e-mail (pole tekstowe oznaczone etykietą ,,Filter'') oraz usunięcie administratora (link ,,Delete'', przy czym nie jest możliwe usunięcie aktualnie zalogowanego administratora).
-  \item Link ,,Users'' pokazuje listę użytkowników. Lista ta~pozwala na~wyszukanie użytkownika według adresu e-mail (pole tekstowe oznaczone etykietą ,,Filter''), usunięcie użytkownika (link ,,Delete'') oraz zalogowanie się jako użytkownik (link ,,Login'').
-  \item Link ,,Auctions'' pokazuje listę aukcji. Lista pozwala na~wyszukanie aukcji według tytułu lub opisu aukcji (pole tekstowe ,,Filter'') oraz usunięcie aukcji (link ,,Delete'').
-\end{itemize}
-
 \begin{figure}[h]
 \centering
 \fbox{\includegraphics[width=\textwidth]{obrazki/auctioneer02.png}}
@@ -450,12 +404,7 @@ W~panelu administratora znajdują się:
 \label{screen02}
 \end{figure}
 
-\begin{figure}[h]
-\centering
-\fbox{\includegraphics[width=\textwidth]{obrazki/auctioneer01.png}}
-\caption{Strona główna serwisu \textit{auctioneer} -- lista wystawionych aukcji}
-\label{screen01}
-\end{figure}
+Link ,,Zaloguj'' przekierowuje gościa do~formularza logowania (Rys. \ref{screen03}). Formularz logowania opisany został poniżej. Link ,,Zarejestruj'' przekierowuje do~formularza rejestracji (Rys. \ref{screen13}). Zestaw odsyłaczy: ,,Nazwa'', ,,Minimalna cena'' oraz ,,Aktualna cena''  zmienia kolejność wyświetlania aukcji, sortując je~według nazwy, minimalnej oraz aktualnej ceny (ponowne wybranie linku odwraca kolejność sortowania). Link-nagłówek ,,Auctioneer'' prowadzi zawsze na~stronę główną.
 
 \begin{figure}[h]
 \centering
@@ -471,6 +420,45 @@ W~panelu administratora znajdują się:
 \label{screen13}
 \end{figure}
 
+Zestaw przycisków: ,,Wstecz'', ,,1'', ,,2'', \ldots, ,,Dalej'' pozwala przeglądać kolejne strony wystawionych aukcji (mechanizm ,,paginacji stron'').
+
+
+\paragraph{Aukcje}
+
+Na stronie głównej znajduje się lista aukcji. Każda aukcja ma~przy swoim opisie przycisk ,,Więcej'' prowadzący do~strony aukcji (Rys. \ref{screen09} oraz Rys. \ref{screen05}).
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=\textwidth]{obrazki/auctioneer09.png}}
+\caption{Strona aukcji zawierająca detale. Widok dla gościa lub zalogowanego użytkownika nie wystawiającego aukcję}
+\label{screen09}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=\textwidth]{obrazki/auctioneer05.png}}
+\caption{Strona aukcji zawierająca detale. Widok dla zalogowanego użytkownika wystawiającego aukcję}
+\label{screen05}
+\end{figure}
+
+Strona aukcji zawiera pełny opis wystawionej aukcji. Przycisk ,,Wróć'' pozwala wrócić na~stronę główną, a przycisk ,,Podbij'' prowadzi do~formularza podbijania aukcji (Rys. \ref{screen10}). Jeśli użytkownik nie jest zalogowany to~po~naciśnięciu przycisku ,,Podbij'' zostaje on~przekierowany do~formularza logowania. Po~prawidłowym zalogowaniu, użytkownik zostaje automatycznie przekierowany do~formularza podbijania aukcji.
+
+\begin{figure}[h]
+\centering
+\fbox{\includegraphics[width=\textwidth]{obrazki/auctioneer10.png}}
+\caption{Formularz podbijania aukcji}
+\label{screen10}
+\end{figure}
+
+\paragraph{Formularz logowania}
+
+Formularz logowania umożliwia niezalogowanemu użytkownikowi otworzyć nową, bezpieczną sesję. Pola tekstowe pozwalają na~wprowadzenie danych logowania: adresu e-mail oraz hasła. Użycie opcji ,,Zapamiętaj mnie'' skutkuje tym, że~sesja użytkownika nie wygaśnie, gdy użytkownik będzie nieaktywny przez dłuższy czas. Przycisk ,,Zaloguj'' służy do~zatwierdzenia operacji logowania.
+
+
+Jeżeli operacja logowania przeszła pomyślnie (użytkownik o~podanym adresie e-mail oraz haśle posiada konto w~serwisie oraz~zostało aktywowane, ponadto adres e-mail oraz hasło zostały poprawnie podane), to~otwarta zostaje sesja użytkownika oraz zostanie on~przekierowany do~panelu użytkownika. Akcje dla zalogowanego użytkownika opisuje podrozdział \ref{man.user}.
+
+Pod formularzem znajdują się odnośniki pomagające użytkownikowi zarejestrować się, bądź odzyskać utracone hasło. Link ,,Zarejestruj'' przekierowuje do~formularza rejestracji, link ,,Zapomniałeś hasła?'' przekierowuje do~formularza zmiany hasła (Rys. \ref{screen11}), natomiast link ,,Nie otrzymałeś potwierdzenia rejestracji?'' przekierowuje do~formularza ponownego wysłania potwierdzenia rejestracji, gdy takie potwierdzenie nie zostało poprawnie wysłane na~adres e-mail użytkownika (Rys. \ref{screen12}).
+
 \begin{figure}[h]
 \centering
 \fbox{\includegraphics[width=\textwidth]{obrazki/auctioneer11.png}}
@@ -485,6 +473,12 @@ W~panelu administratora znajdują się:
 \label{screen12}
 \end{figure}
 
+\subsection{Opis projektu od~strony użytkownika} \label{man.user}
+
+\paragraph{Panel użytkownika (Kokpit)}
+
+Po~zalogowaniu, użytkownik zostaje przekierowany do~panelu użytkownika (Rys. \ref{screen04}). W~,,nagłówku'' strony znajduje się zestaw odnośników: link ,,Kokpit'' prowadzi do~panelu użytkownika, link ,,Profil'' prowadzi do~formularza edycji profilu (Rys. \ref{screen07}), a~link ,,Wyloguj'' zamyka sesję użytkownika i~przekierowuje na~stronę główną.
+
 \begin{figure}[h]
 \centering
 \fbox{\includegraphics[width=\textwidth]{obrazki/auctioneer04.png}}
@@ -494,24 +488,15 @@ W~panelu administratora znajdują się:
 
 \begin{figure}[h]
 \centering
-\fbox{\includegraphics[width=\textwidth]{obrazki/auctioneer05.png}}
-\caption{Strona aukcji zawierająca detale. Widok dla zalogowanego użytkownika wystawiającego aukcję}
-\label{screen05}
+\fbox{\includegraphics[width=\textwidth]{obrazki/auctioneer07.png}}
+\caption{Panel edycji profilu użytkownika}
+\label{screen07}
 \end{figure}
 
-\begin{figure}[h]
-\centering
-\fbox{\includegraphics[width=\textwidth]{obrazki/auctioneer09.png}}
-\caption{Strona aukcji zawierająca detale. Widok dla gościa lub zalogowanego użytkownika nie wystawiającego aukcję}
-\label{screen09}
-\end{figure}
+Na~panelu użytkownika widoczne są zakładki: \textit{Nowe}, \textit{Wystawione}, \textit{Zakończone}, \textit{Wygrane}. Otwierają one kolejno: listę nowo utworzonych aukcji użytkownika, listę aukcji aktualnie wystawionych przez użytkownika, listę aukcji zakończonych oraz listę aukcji wygranych przez użytkownika.
 
-\begin{figure}[h]
-\centering
-\fbox{\includegraphics[width=\textwidth]{obrazki/auctioneer10.png}}
-\caption{Formularz podbijania aukcji}
-\label{screen10}
-\end{figure}
+
+Każda aukcja, z~dowolnej, wyżej wymienionej listy, posiada dwa przyciski: ,,edytuj'' -- prowadzący do~formularza edycji aukcji (Rys. \ref{screen06}) oraz ,,usuń'' -- powodujący usunięcie aukcji po~uprzednim potwierdzeniu operacji. Ponadto aukcja posiada przyciski zmiany stanu: aukcje z~listy \textit{Nowe} posiadają przycisk ,,wystaw'', aukcje z~listy \textit{Wystawione} -- ,,zakończ'' oraz~aukcje z~listy \textit{Zakończone} -- ,,wystaw ponownie''.
 
 \begin{figure}[h]
 \centering
@@ -520,12 +505,13 @@ W~panelu administratora znajdują się:
 \label{screen06}
 \end{figure}
 
-\begin{figure}[h]
-\centering
-\fbox{\includegraphics[width=\textwidth]{obrazki/auctioneer07.png}}
-\caption{Panel edycji profilu użytkownika}
-\label{screen07}
-\end{figure}
+\paragraph{Panel edycji aukcji}
+
+Panel edycji aukcji posiada pole tekstowe zmiany nazwy (tytułu) aukcji, pole tekstowe zmiany ceny minimalnej aukcji oraz pole tekstowe zaopatrzone w~zestaw narzędzi, służących do~formatowania tekstu, do~edycji opisu aukcji. Przycisk ,,Aktualizuj'' zatwierdza zmiany.
+
+\subsection{Opis projektu od strony administratora}
+
+Aby odwiedzić panel administratora (Rys. \ref{screen08}) należy podać ścieżkę \textit{adres\_bazowy\_aplikacji}\texttt{/admin}. Wyświetli się wówczas formularz logowania administratora. Podając odpowiednie dane (adres e-mail oraz hasło) można zarządzać aplikacją z~poziomu administratora.
 
 \begin{figure}[h]
 \centering
@@ -533,3 +519,13 @@ W~panelu administratora znajdują się:
 \caption{Panel administratora z~listą aukcji}
 \label{screen08}
 \end{figure}
+
+W~panelu administratora znajdują się:
+
+\begin{itemize}
+  \item Link ,,Leave panel'', który pozwala wyjść z~panelu, pozostając zalogowanym jako administrator. Link ten przekierowuje na~stronę główną.
+  \item Link ,,Sign out'' umożliwia wylogowanie administratora.
+  \item Link ,,Admins'' pokazuje listę administratorów serwisu. Lista ta~udostępnia następujące akcje: wyszukanie administratora według adresu e-mail (pole tekstowe oznaczone etykietą ,,Filter'') oraz usunięcie administratora (link ,,Delete'', przy czym nie jest możliwe usunięcie aktualnie zalogowanego administratora).
+  \item Link ,,Users'' pokazuje listę użytkowników. Lista ta~pozwala na~wyszukanie użytkownika według adresu e-mail (pole tekstowe oznaczone etykietą ,,Filter''), usunięcie użytkownika (link ,,Delete'') oraz zalogowanie się jako użytkownik (link ,,Login'').
+  \item Link ,,Auctions'' pokazuje listę aukcji. Lista pozwala na~wyszukanie aukcji według tytułu lub opisu aukcji (pole tekstowe ,,Filter'') oraz usunięcie aukcji (link ,,Delete'').
+\end{itemize}

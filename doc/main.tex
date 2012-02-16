@@ -11,6 +11,7 @@
 \usepackage{color}
 \usepackage{caption}
 \usepackage[pdftex]{hyperref}
+\usepackage{pdfpages}
 
 \hypersetup{
   colorlinks,
@@ -21,6 +22,7 @@
 \urlstyle{rm}
 \linespread{1.2}  % interlinia
 \captionsetup[figure]{name=Rys.}
+\renewcommand\lstlistlistingname{Spis Listingów}
 
 % definicje typów
 \definecolor{LightGray}{cmyk}{0,0,0,0.1}
@@ -34,9 +36,9 @@
 % DOKUMENT
 \begin{document}
 
-\tableofcontents
+\includepdf{obrazki/strona_tytulowa.png}
 
-\chapter{Wstęp}
+\tableofcontents
 
 \include{cele}
 
@@ -73,6 +75,10 @@
 \include{obserwacje}
 
 \listoffigures
+\addcontentsline{toc}{chapter}{Spis rysunków}
+
+\lstlistoflistings
+\addcontentsline{toc}{chapter}{Spis listingów}
 
 \include{bibliografia}
 
